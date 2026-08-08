@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1090. 6의 배수 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1090</div>
+  <h1>6의 배수</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a> <a class="chip" href="../index.html?cat=수학">수학</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">양의 정수 $n$이 주어진다. $n$은 $6$의 배수인가?</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $n$이 주어진다. $(6&nbsp;≤ n&nbsp;≤ 10^{6666})$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $n$이 $6$의 배수라면 YES&#44; 배수가 아니라면 NO를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">66
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">YES</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$6$의 배수는 곧 $2$와 $3$의 공배수로&#44; $2$와 $3$의 배수임을 판정하면 된다.
+</p>
+<p>
+	<ul>
+		<li>
+			$2$의 배수 : 일의 자리 수가 짝수여야 한다.
+		</li>
+		<li>
+			$3$의 배수 :&nbsp;<span style="color:#202122;font-family:sans-serif;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">각 자리 수의 합이 3의 배수여야 한다.</span>
+		</li>
+	</ul>
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1239. algowiki 미로 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1239</div>
+  <h1>algowiki 미로</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 8</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=그래프_탐색">그래프 탐색</a> <a class="chip" href="../index.html?cat=너비_우선_탐색">너비 우선 탐색</a> <a class="chip" href="../index.html?cat=비트마스킹">비트마스킹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	당신은 정말 우연히 발을 헛디뎌 그만 algowiki 미로에 갇혀버렸다. 주위를 둘러보니 낡은 글귀가 쓰여져 있었는데&#44; 이는 다음과 같다.
+</p>
+<ul>
+	<li>
+		이곳은 $N \times M$개의 칸으로 구성된 직사각형 미로이다.
+	</li>
+	<li>
+		미로는 자유롭게 지나다닐 수 있는 공간&#44; 벽&#44; 플래그&#44; 당신의 처음 위치&#44; 탈출구로 구성된다.
+	</li>
+	<ul>
+		<li>
+			벽은 지나다닐 수 없다.
+		</li>
+		<li>
+			플래그는<span style="text-wrap:wrap;">&nbsp;'a'&#44; 'l'&#44; 'g'&#44; 'o'&#44; 'w'&#44; 'i'&#44; 'k'&#44; 'i'로 총 $8$개이다.</span> 
+		</li>
+	</ul>
+	<li>
+		상하좌우로 인접한 칸에 대해 한 칸씩 자유롭게 이동할 수 있으며&#44; 각 이동 당 $1$의 단위 시간이 걸린다.
+	</li>
+	<li>
+		당신은 $8$개의 플래그를 모두 획득하여 탈출구로 이동해야만 탈출할 수 있다.
+	</li>
+	<ul>
+		<li>
+			플래그를 모두 획득한 뒤 탈출구에 도착하면 그 즉시 탈출에 성공한다.
+		</li>
+	</ul>
+</ul>
+미로의 구조와 당신의 처음 위치가 주어졌을 때&#44; 당신이 미로를 탈출하는 데에 걸리는 시간의 최솟값을 구하는 프로그램을 작성해 보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $N&#44; M$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ n&#44; m&nbsp;≤ 50; 10 ≤ n \times m)$
+</p>
+<p>
+	둘째 줄부터 $N$개의 줄에 걸쳐 길이 $M$의 문자열 형태로 미로의 모습이 주어진다. 벽은 'X'로&#44; 자유롭게 지나다닐 수 있는 공간은 'O'로 표현된다.
+</p>
+<p>
+	플래그는 본문에 정의된 알파벳과 같고 당신의 처음 위치는 'S'&#44; 탈출구는 'E'로 표현된다.
+</p>
+<p>
+	플래그 $8$개와 'S'&#44; 'E'는 반드시 주어진다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">당신이 미로를 탈출하는 데에 걸리는 시간의 최솟값을 출력한다. 만약 어떻게 해도 미로를 탈출할 수 없다면 "So Sad..."를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6 6
+gXXXXl
+OOEiOO
+OXSXXX
+OwOOOX
+OXXXkO
+oOiXXa
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">35</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

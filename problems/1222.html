@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1222. 이항계수의 합 $2$ · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1222</div>
+  <h1>이항계수의 합 $2$</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=조합론">조합론</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	<span style="text-wrap:wrap;">양의 정수 $n$이 주어질 때&#44; 다음 값을 구하여라.</span> 
+</p>
+<ul>
+	<li>
+		$\left(\begin{array}{c}n\\ 0\end{array}\right) - \left(\begin{array}{c}n\\ 1\end{array}\right) + \left(\begin{array}{c}n\\ 2\end{array}\right) - \left(\begin{array}{c}n\\ 3\end{array}\right) + ... +$ $(-1)^n\left(\begin{array}{c}n\\ n\end{array}\right)$<br />
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $n$이 주어진다. $(1 ≤ n ≤ 10^{18})$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 문제의 답을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">0</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">본문에 정의된 식의 값은 곧 $0$과 같다. 이는 이항 정리&nbsp;$(x+y)^n = \sum\limits_{i=0}^n \left(\begin{array}{c}n\\ r\end{array}\right)x^{n-r}y^r$를 이용해 증명할 수 있다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

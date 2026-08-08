@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1043. 알파벳 개수 세기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1043</div>
+  <h1>알파벳 개수 세기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	알파벳 소문자로만 이루어진 문자열 $S$가 주어진다. $S$에서 $a&#44; b&#44; ... &#44; z$가 등장한 횟수를 각각 $c_a&#44; c_b&#44; ... &#44; c_z$라 하자.
+</p>
+<p>
+	이때 <span style="text-wrap:wrap;">$c_a&#44; c_b&#44; ... &#44; c_z$와 $S$에서 가장 많이 등장한 알파벳&#44; 가장 적게 등장한 알파벳을 각각 구해보도록 하자.</span> 
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 $S$가 주어진다. $(1&nbsp;≤ |S|&nbsp;≤ 1&#44;000)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 <span style="text-wrap:wrap;">$c_a&#44; c_b&#44; ... &#44; c_z$를 공백으로 구분하여 출력한다.</span> 
+</p>
+<p>
+	<span style="text-wrap:wrap;">둘째 줄에 가장 많이 등장한 알파벳&#44; 가장 적게 등장한 알파벳을 공백으로 구분하여 출력한다.</span> 
+</p>
+<p>
+	<span style="text-wrap:wrap;">만약&nbsp;<span style="text-wrap:wrap;">가장 많이 등장한 알파벳이나 가장 적게 등장한 알파벳이 여러 개라면&#44; 그들 중 <strong>사전상 앞선</strong> 알파벳을 출력해야 한다.</span></span> 
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">algowiki</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 0 0 0 0 0 1 0 2 0 1 1 0 0 1 0 0 0 0 0 0 0 1 0 0 0
+i b</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><span style="text-wrap:wrap;">가장 적게 등장한 알파벳은 b&#44; c&#44; d&#44; e 등 다양하지만&#44; 그들 중 사전상 앞선 알파벳은 b이므로 b를 출력해야 한다.</span></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">알파벳 별로 등장 횟수를 기록할 배열을 두어 문제를 해결할 수 있다.
+나아가 기록된 정보를 바탕으로 가장 많이 등장한 알파벳과 가장 적게 등장한 알파벳을 구할 수 있다.
+<pre>
+// 가장 많게, 적게 등장한 알파벳의 등장 횟수 구하기
+
+max_cnt, min_cnt        ← 가장 많게, 적게 등장한 알파벳의 등장 횟수
+for i		            ← 'a' to 'z'
+    if cnt[i] > 0       ← 등장 횟수가 0인 알파벳은 고려 대상이 아님
+        max_cnt = max(max_cnt, cnt[i])
+        min_cnt = min(min_cnt, cnt[i])     
+</pre>
+<pre>
+// 가장 많게, 적게 등장했으면서 사전상 앞선 알파벳 찾기
+
+max_ch, min_ch          ← null
+for i		            ← 'a' to 'z'
+    if cnt[i] > 0       ← 등장 횟수가 0인 알파벳은 고려 대상이 아님
+        if cnt[i] == max_cnt and max_ch == null
+            max_ch = i
+        if cnt[i] == min_cnt and min_ch == null
+            min_ch = i
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

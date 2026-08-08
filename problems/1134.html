@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1134. 약수의 합의 합 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1134</div>
+  <h1>약수의 합의 합</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 6</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	양의 정수 $n$의 약수의 개수를 $c(n)$이라 할 때&#44; $n$의 약수를 나열한 수열 $d_1&#44; d_2&#44; ... &#44; d_{c(n)}$을 정의할 수 있다.
+</p>
+<p>
+	구간 $[s&#44; e]$에 대해 $\sum\limits_{i=s}^e \sum\limits_{j=1}^{c(i)} d_j$ 의 값을 구하여라.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $s&#44; e$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ s&nbsp;≤ e&nbsp;≤ 10^7)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body"><span style="text-wrap:wrap;">첫째 줄에 $\sum\limits_{i=s}^e \sum\limits_{j=1}^{c(i)} d_j$ 의 값을 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">1 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">87</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

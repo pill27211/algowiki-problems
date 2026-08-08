@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1142. algowiki 준비하기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1142</div>
+  <h1>algowiki 준비하기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 5</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	algowiki를 완성하기 위해선 무엇을 준비해야 할까? 그것은 바로 algowiki를 구성하는 알파벳이다.
+</p>
+<p>
+	<span style="text-wrap:wrap;">'</span><span style="text-wrap:wrap;">a'&#44; 'l'&#44; 'g'&#44; 'o'&#44; 'w'&#44; 'k'&#44; 'i'&nbsp;</span>로만 구성된 문자열 $S$가 주어질 때&#44; 아래 쿼리를 수행하는 프로그램을 작성해보자.
+</p>
+<ul>
+	<li>
+		$l$ $r$ : 문자 $S_l&#44; S_{l+1}&#44; ... &#44; S_{r-1}&#44; S_r$ 를 자유롭게 이용해 만들 수 있는 'algowiki'의 최대 개수를 출력한다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $|S|$와 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ |S| ≤ 2 \times 10^5; 1 ≤ Q ≤ 10^5)$
+</p>
+<p>
+	둘째 줄에 $S$가 주어진다. $S$는 '<span style="text-wrap:wrap;">a'&#44; 'l'&#44; 'g'&#44; 'o'&#44; 'w'&#44; 'k'&#44; 'i' 로만 구성되어 있다.</span>
+</p>
+<p>
+	셋째 줄부터 $Q$개의 줄에 걸쳐 $l&#44; r$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ l ≤ r ≤ |S|)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">쿼리가 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">20 3
+alaloigwwwikikiigoal
+1 8
+3 12
+1 20
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">0
+1
+2</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$[l&#44; r]$에 등장하는 알파벳들을 자유롭게 이용할 수 있으므로&#44; 만들 수 있는 'algowiki'의 최대 개수는 곧 다음과 같다.
+</p>
+<ul>
+	<li>
+		$[l&#44; r]$에서 $min($'$a$'의 개수&#44; '$l$'의 개수&#44; ... &#44; '$i$'의 개수$)$
+	</li>
+</ul>
+단&#44; 다른 알파벳들과 달리 $i$는 'algowiki'에서 두 번 등장하므로&#44; 절반을 취해 주어야 함을 유의해야 한다.
+<p>
+	구간 속 특정 알파벳의 개수는 누적 합을 이용해 빠르게 구할 수 있으므로&#44; 전처리 $O(|S|)$에 쿼리당 $O(1)$로 문제를 총 $O(|S| + Q)$에 해결할 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

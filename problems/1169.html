@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1169. 달리기 1 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1169</div>
+  <h1>달리기 1</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	두 선수 $A&#44; B$가 길이 $D$의 달리기 트랙 위에 서있다. $A&#44; B$는 각각 $1$초 당 $l_A$ $m$&#44; $l_B$ $m$ 씩 직선거리를 주파할 수 있다.
+</p>
+<p>
+	$l_A&#44; l_B$가 주어졌을 때&#44; $B$의 입장에서 본다면 정확히 몇 초 후에 출발해야 $A$와 동시에 결승선을 통과할 수 있을까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $l_A&#44; l_B$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ l_A&#44; l_B&nbsp;≤ 1&#44;000; l_A&nbsp;≤ l_B)$
+</p>
+<p>
+	둘째 줄에 달리기 트랙의 길이 $D$가 주어진다. $(l_B ≤ D ≤ 1&#44;000&#44;000)$
+</p>
+<p>
+	$D$는 $l_A$와 $l_B$의 공배수 중 하나이며&#44; 입력으로 주어지는 모든 수는 양의 정수이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 $B$가 $A$와 동시에 결승선을 통과하기 위해 기다려야 할 시간을 출력한다. 각각의 단위는 $m&#44; s$로 계산한다.
+</p>
+<p>
+	두 선수는 직선거리만을 주파하며&#44; $l_A&#44; l_B$를 제외한 다른 외부 요인은 무시한다.
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3 5
+30
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$D$가 $l_A$와 $l_B$의 공배수 중 하나라는 것을 확인하자. 이에 따라 두 선수가 각각 결승선을 통과하는 데에 걸리는 시간은 반드시 정수가 된다.<br />
+나아가 $A$는 $\frac{D}{l_A}$ 초&#44; $B$는 $\frac{D}{l_B}$ 초 뒤에 결승선을 통과하며&#44; $l_A ≤ l_B$ 이므로 $\frac{D}{l_A} ≥ \frac{D}{l_B}$ 가 된다.<br />
+이들의 차이가 곧 $A&#44; B$ 사이의 결승 통과 시간 차와 같으므로 $\frac{D}{l_A} - \frac{D}{l_B}$ 가 답이 된다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

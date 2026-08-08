@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1001. 사칙연산 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1001</div>
+  <h1>사칙연산</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">간단한 사칙연산을 수행하는 프로그램을 작성해보자.<br />
+사칙연산이란&#44; 덧셈$(+)$&#44; 뺄셈$(-)$&#44; 곱셈$(\times)$&#44; 나눗셈$(/)$의 네 가지 이항연산을 묶어 부르는 말이다.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 정수 $A&#44; B$가 공백으로 구분되어 주어진다.$(-40&#44;000 ≤ A&#44; B ≤ 40&#44;000; B ≤ A)$<br />
+$A/B$의 결과가 항상 정수임이 보장된다.</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $A+B$&#44; $A-B$&#44; $A \times B$&#44; $A/B$의 결과를 공백으로 구분하여 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">10 5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">15 5 50 2
+</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">코드는 일반적으로 작성되어야 합니다. 즉&#44; 예시 $1$뿐만 아니라 '$10$ $2$'나 '$15$ $5$'처럼 문제에서 정의한 입력 조건을 만족하는 어떠한 입력에 대해서도 올바른 출력이 이뤄질 수 있어야 합니다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">두 정수가 공백으로 구분되어 주어질 경우&#44; C / C++은 다음과 같이 공백을 따로 생각하지 않아도 된다.
+<pre>
+int a&#44; b;
+// C
+scanf("%d %d"&#44; &a&#44; &b);
+// C++
+cin >> a >> b;
+</pre>
+Java나 Python의 경우 공백을 비롯해 입력 형식에 좀 더 신경 써주어야 한다.<br>
+Java
+<pre>
+// Scanner를 이용한 방법
+Scanner scanner = new Scanner(System.in);
+int a = scanner.nextInt();
+int b = scanner.nextInt();
+
+// BufferedReader를 이용한 방법
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+String[] token = br.readLine().split(" ");
+int a = Integer.parseInt(token[0]);
+int b = Integer.parseInt(token[1]);
+</pre>
+Python
+<pre>
+// 가장 많이 쓰이는 방식
+a&#44; b = map(int&#44; input().split())
+</pre>
+
+이제 입력 받은 두 수 a&#44; b에 대해 사칙연산의 결과를 차례대로 출력하자. 나눗셈의 결과가 정수임이 보장되므로&#44; 실수 자료형을 기용할 필요는 없다.
+출력할 때 역시 공백으로 구분해야 함을 유의해야 한다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

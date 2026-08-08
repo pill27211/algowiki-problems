@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1042. 진수의 무사 탈출 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1042</div>
+  <h1>진수의 무사 탈출</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 0.500s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a> <a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=덱">덱</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	<a class="ke-insertfile" href="problem.php?id=1015" target="_blank">여기</a>서 우리는 진수가 최종 보스를 공략할 수 있도록 도와주었고&#44; 결국 진수는 최종 보스를 잡아내었다.
+</p>
+<p>
+	그러나 기쁨도 잠시&#44; 던전 전체가 흔들리며 던전이 붕괴할 위험에 빠졌다. 엎친 데 덮친 격으로 하나뿐인 탈출구가 굳건히 닫혀 버렸다.
+</p>
+<p>
+	이는 최종 보스의 마지막 함정이었고&#44; 아래와 같은 문제를 풀어야 탈출구를 열 열쇠를 구할 수 있었다.
+</p>
+<ul>
+	<li>
+		$1$ ~ $9$ 중 하나의 숫자가 적힌 카드 $c_1&#44; c_2&#44; ... &#44; c_n$이 차례대로 주어진다.
+	</li>
+	<li>
+		카드가 주어질 때마다 그동안 받은 카드들의 왼쪽 또는 오른쪽에 놓아야 한다. 가장 처음 받은 카드는 중앙에 위치한다.
+	</li>
+	<li>
+		카드를 한 번 놓으면&#44; 더 이상 그 카드에 손댈 수 없다.
+	</li>
+	<li>
+		최종적으로 놓인 카드들을 왼쪽에서 오른쪽으로 읽으면 $n$자리의 수가 하나 만들어진다.
+	</li>
+	<li>
+		이 수가 최종 보스가 미리 계산해 둔 수와 일치한다면 성공이다. 최종 보스는 항상 이 게임에서 만들 수 있는 가장 큰 수를 미리 계산해둔다.
+	</li>
+</ul>
+<p>
+	진수는 모든 경우를 조사해 보려다 경우의 수가 $2^n$꼴임을 깨닫고&#44; 우리에게 $c_1&#44; c_2&#44; ... &#44; c_n$을 주며 도움을 요청하였다.
+</p>
+<p>
+	진수가 무사히 탈출할 수 있도록 게임에서 만들 수 있는 가장 큰 수를 어서 구해주도록 하자!
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 카드의 개수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄에 $c_1&#44; c_2&#44; ... &#44; c_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ c_i&nbsp;≤ 9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><span style="color:rgba(0&#44; 0&#44; 0&#44; 0.87);font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">첫째 줄에 진수에게 보내게 될 수를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+2 4 3 6 8 7
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">864237</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">카드가 주어지는 순간마다 어떤 선택을 해야 최적의 답을 찾을 수 있을까?<br />
+$9$에 가까울수록 최대한 왼쪽에 배치하는 것이 최선일 것이다. 즉&#44; 카드가 주어질 때마다 다음을 만족한다면 왼쪽에 놓으면 된다.<br />
+<ul>
+	<li>
+		현재 맨 왼쪽 카드에 적힌 수(가장 큰 자릿수)와 비교 했을 때&#44; 지금 주어진 카드가 더 크거나 같다.
+	</li>
+</ul>
+$1 ≤ n ≤ 200&#44;000$ 이므로&#44; 양방향 삽입을 효율적으로 처리할 수 있는 덱과 같은 자료구조를 이용하자.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

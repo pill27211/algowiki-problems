@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1070. 두 배열 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1070</div>
+  <h1>두 배열</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=정렬">정렬</a> <a class="chip" href="../index.html?cat=투_포인터">투 포인터</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	모든 요소가 정수인 길이 $n$의 배열 $a = [a_1&#44; a_2&#44; ... &#44; a_n]$과 $b = [b_1&#44; b_2&#44; ... &#44; b_n]$이 주어진다. 이 두 배열을 합친 결과를 출력하자.
+</p>
+<p>
+	단&#44; 합친 결과를 $[c_1&#44; c_2&#44; ... &#44; c_{2n}]$이라 할 때 $c_1&nbsp;≤ c_2&nbsp;≤ ...&nbsp;≤ c_{2n}$ 을 만족해야 한다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 배열의 길이 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다. $(-10^9&nbsp;≤ a_i&nbsp;≤ 10^9)$
+</p>
+<p>
+	셋째 줄에 $b_1&#44; b_2&#44; ... &#44; b_n$이 공백으로 구분되어 주어진다. $(-10^9&nbsp;≤ b_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $c_1&#44; c_2&#44; ... &#44; c_{2n}$을 공백으로 구분하여 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+-1 1 3
+-3 -1 2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">-3 -1 -1 1 2 3</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$a$를 순회하는 포인터 $i$와 $b$를 순회하는 포인터 $j$를 각각 두고&#44; $a_i$와 $b_j$의 비교 결과에 따라 오름차순으로 정리할 수 있다.
+</p>
+<p>
+	이 경우 $i$나 $j$ 중 어느 하나가 배열의 끝에 도달하게 될테고&#44; 남은 $a$나 $b$를 새로운 배열 뒤에 붙여주면 된다.
+</p>
+<p>
+	또 다른 방법으로&#44; 그냥 $a$와 $b$를 이어붙인 배열에 대해 정렬을 진행해도 된다.
+</p>
+<p>
+	첫 번째 방법의 경우 $O(n)$&#44; 두 번째 방법의 경우 $O(nlogn)$의 시간복잡도를 갖는다.<br />
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

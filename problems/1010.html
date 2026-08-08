@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1010. 수 정렬하기 (Small) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1010</div>
+  <h1>수 정렬하기 (Small)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$N$개의 수로 이루어진 수열 $a_1&#44; a_2&#44; ... a_N$과&#44; $k$가 주어진다.
+</p>
+<p>
+	$k$가 $1$이라면 오름차순 정렬한 결과를&#44; $2$라면 내림차순 정렬한 결과를 출력해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 수열의 길이를 나타내는 정수 $N$과 $k$가 주어진다. $(1 ≤ N ≤ 3&#44;000 ; 1 ≤ k ≤ 2)$<br />
+둘째 줄에 $a_1&#44; a_2&#44; ... a_N$이 공백으로 구분되어 주어진다. $(1 ≤ a_i ≤ 10^7)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">$k$가 $1$이라면 수열 $a_N$을 오름차순 정렬한 결과를&#44; $2$라면 내림차순 정렬한 결과를 공백으로 구분하여 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6 1
+4 2 8 1 6 2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 2 4 6 8
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">통상적으로 C/C++기준 $1$초에 억단위 연산을 수행할 수 있다. 정말 간단한 연산은 $1$초에 $10^9$번까지도 수행할 수 있다.<br />
+본 문제는 $2$초 내로 길이 $1 ≤ N ≤ 3,000$의 수열을 정렬해야 하므로, $O(N^2)$의 시간복잡도를 갖는 정렬 알고리즘을 사용해도 충분히 해결할 수 있다. $O(N^2)$의 시간복잡도를 갖는 정렬은 대표적으로 다음과 같다.<br />
+<ul>
+	<li>
+		버블 정렬
+	</li>
+	<li>
+		선택 정렬
+	</li>
+	<li>
+		삽입 정렬
+	</li>
+	<li>
+		퀵 정렬
+	</li>
+	<ul>
+		<li>
+			<span style="text-wrap:wrap;">퀵 정렬의 경우 평균적으로 빠른 속도를 자랑하지만, 최악의 경우가 $O(N^2)$임은 변하지 않는다.</span> 
+		</li>
+	</ul>
+</ul></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

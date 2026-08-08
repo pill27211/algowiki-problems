@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1243. 집합과 쿼리 0 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1243</div>
+  <h1>집합과 쿼리 0</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 4 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=비트마스킹">비트마스킹</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	집합 $U = \{ ∅ \}$<span style="box-sizing:inherit;color:rgba(0&#44;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;font-family:&quot;">에 대해 아래의 쿼리를 수행하는 프로그램을 작성해보자.</span> 
+</p>
+<ul>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$1$ $x$ : 집합 $U$에 정수 $x$를 추가한다. $x$가 이미 $U$에 속한다면 아무것도 수행하지 않는다.</span> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$2$ $x$ : 집합 $U$에서 정수 $x$를 제거한다. $x$가 $U$에 존재하지 않는다면 아무것도 수행하지 않는다.</span> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$3$ $x$ : 집합 $U$에 정수 $x$가 존재한다면 $1$&#44; 존재하지 않는다면 $0$을 출력한다.</span> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$4$ :&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">집합 $U'$를&nbsp;</span><span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">$U' = \{x ∈ \{1&#44; 2&#44; ... &#44; 29\}\}$</span><span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;"></span><span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">로 정의할 때&#44; $U$를 $U'$로 바꾼다.</span></span> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$5$ : 집합 $U'$를 $U' = \{x ∈ \{1&#44; 2&#44; ... &#44; 29\}$ $|$ $x ∉ U\}$로 정의할 때&#44; $U$를 $U'$로 바꾼다.</span> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:rgba(0&#44;font-family:&quot;font-size:14px;">$6$ : <span style="text-wrap:wrap;">집합 $U'$를 $U' = \{ ∅ \}$로 정의할 때&#44; $U$를 $U'$로 바꾼다.</span><span style="text-wrap:wrap;"></span></span> 
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 쿼리의 개수를 의미하는 정수 $Q$가 주어진다. $(1 ≤ Q&nbsp;≤ 2&#44;000&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $Q$개의 줄에 걸쳐 임의의 쿼리가 주어진다. 입력으로 주어지는 $x$는 $1$ 이상 $29$ 이하의 정수이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">$3$번 쿼리가 주어질 때마다 그에 맞는 답을 한 줄에 하나씩 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">15
+1 1
+1 2
+3 3
+1 3
+3 2
+1 29
+2 15
+2 2
+3 15
+5
+3 5
+3 29
+4
+3 1
+6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">0
+1
+0
+1
+0
+1</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1007. 구구단 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1007</div>
+  <h1>구구단</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=구현">구현</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">$N$이 주어진다. 구구단 $N$단을 출력해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $N$이 주어진다.$(1 ≤ N ≤ 9)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">예제의 출력 형식과 같게 구구단 $N$단을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">3 * 1 = 3 
+3 * 2 = 6 
+3 * 3 = 9 
+3 * 4 = 12 
+3 * 5 = 15 
+3 * 6 = 18 
+3 * 7 = 21 
+3 * 8 = 24 
+3 * 9 = 27 
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">반복문의 사용과, 출력 형식의 요구를 정확히 수행할 수 있는지를 묻는 문제이다.
+<li> $1$부터 $9$까지 하나씩 증가하는 변수 $i$를 두자. </li>
+<li> 출력 형식 $a * b = c$ 에서, $a = N$, $b = i$, $c = N * i$가 된다. </li>
+<li> 각 $i$마다 위를 바탕으로 출력문을 작성해주자. </li>
+<li> 수, 기호 사이가 공백으로 잘 구분되어 있는지, 각 출력이 개행으로 잘 구분되어 있는지에 유의하자. </li></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

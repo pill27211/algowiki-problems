@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1122. 최소공배수 파티 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1122</div>
+  <h1>최소공배수 파티</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=시뮬레이션">시뮬레이션</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=유클리드_호제법">유클리드 호제법</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$개의 정수로 이루어진 수열 $A = A_1&#44; A_2&#44; ... &#44; A_n$이 있다. 이때&#44; 수열을 구성하는 수의 개수를 '수열의 길이'라고 정의하자. 우리는 다음 과정을 반복해 $A$의 길이를 $1$로 만들려고 한다.
+</p>
+<ol>
+	<li>
+		현재 $A$의 길이를 $l$이라고 할 때&#44; $1 ≤ i &lt; j ≤ l$인 $i&#44; j$에 대해 가능한 모든 $lcm(A_i&#44; A_j)$의 결과를 나열한다. 이 수열을 $B = B_1&#44; B_2&#44; ... &#44; B_{\frac{l(l-1)}{2}}$라 하자.
+	</li>
+	<li>
+		<span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;">$B = B_1&#44; B_2&#44; ... &#44; B_{\frac{l(l-1)}{2}}$</span></span><span style="text-wrap:wrap;"></span>에서 중복된 수를 제거한 뒤 정렬한 수열을 얻을 수 있다. 이 수열이 $A$가 된다.</span><br />
+	</li>
+</ol>
+<p>
+	최초의 수열 $A$가 주어졌을 때&#44; 수열 $A$의 길이가 $1$이 될 때까지 반복해야 하는 과정의 수와 길이가 $1$이 됐을 때의 $A_1$을 구하는 프로그램을 작성해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 처음 수열 $A$의 길이 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 10)$
+</p>
+<p>
+	둘째 줄에 $A_1&#44; A_2&#44; ... &#44; A_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ A_i&nbsp;≤ 30)$ $A_i$는 중복되지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><span style="text-wrap:wrap;">수열 $A$의 길이가 $1$이 될 때까지 반복해야 하는 과정의 수와 길이가 $1$이 됐을 때의 $A_1$을 공백으로 구분하여 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4
+1 2 3 4</pre></div><div><div class="io-h">예제 출력</div><pre class="io">3 12</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

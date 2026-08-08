@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1104. 세 수열 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1104</div>
+  <h1>세 수열 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=트리를_사용한_집합과_맵">트리를 사용한 집합과 맵</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	모든 수가 정수인 길이 $n$의 수열 $a_n$이 있다. 이때 수열 $b_m&#44; c_m$은 다음과 같이 정의된다.
+</p>
+<ul>
+	<li>
+		$b_m$ : $a_n$<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">에 등장하는 수의 집합을 단조 증가하도록 배열한 수열</span> 
+	</li>
+	<li>
+		$c_m$ : $b_m$의 임의의 수 $b_i$가 $a_n$에서 등장하는 횟수를 $k$라고 할 때&#44; $c_i$ = $k$
+	</li>
+</ul>
+수열 $a_n$이 주어졌을 때&#44; 수열 $b_m$과 $c_m$을 모두 구해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 수열의 $a_n$의 길이 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다. $(-10^9&nbsp;≤ a_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 $b_1&#44; b_2&#44; ... &#44; b_m$을 공백으로 구분하여 출력한다.
+</p>
+<p>
+	<span style="text-wrap:wrap;">둘째 줄에 $c_1&#44; c_2&#44; ... &#44; c_m$을 공백으로 구분하여 출력한다.</span>
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8
+1 4 2 2 3 1 3 1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 3 4
+3 2 2 1</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	주어지는 수에 대한 카운팅 배열을 두면 된다. 그러나 수의 범위가 적지 않기 때문에&#44; 적절한 방식을 떠올려야 한다.
+</p>
+<p>
+	이는 $map$ 자료구조로 $\{b_i&#44; c_i\}$의 쌍을 저장하여 해결할 수도 있고&#44; 좌표 압축을 이용하여 해결할 수도 있다. 둘 모두 $O(nlogn)$의 시간복잡도를 갖는다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

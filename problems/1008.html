@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1008. End Of File · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1008</div>
+  <h1>End Of File</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	End Of File(이하 EOF)이란&#44; 단어 뜻 그대로 데이터 파일로부터 더 이상 읽을 수 있는 데이터가 없음을 나타낸다.
+</p>
+<p>
+	언어마다 EOF를 처리하는 문법이 상이할테니&#44; 사용 언어에 맞게 EOF 처리 방식을 배워보도록 하자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">기약 없이 두 개의 정수 $A&#44; B$가 공백으로 구분되어 주어진다. $(-10^9 ≤ A&#44; B ≤ 10^9)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">$A&#44; B$가 주어질 때마다 $A+B$의 결과를 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">1 5
+2 5
+-3 2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">6
+7
+-1
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">앞으로 알고리즘 문제를 풀다보면, 입력의 크기가 주어지지 않는 문제들을 종종 만날 수 있다. 이를 대비해 사용 언어에 맞는 EOF 처리 방식을 이 문제를 시작으로 배워보도록 하자.<br>
+C
+<pre>
+흔히 사용하는 scanf()도, 사실 성공적으로 입력된 항목의 개수를 반환한다. 이를 이용해 다음의 방식으로 EOF를 판단할 수 있다.
+
+// 일반적으로 정의된 EOF(-1)와 비교
+while(scanf("%d %d", &a, &b) != EOF)
+{
+    ...
+}
+
+// EOF가 -1임을 이용해 비트 연산으로 간단히 표현
+while(~scanf("%d %d", &a, &b))
+{
+    ...
+}
+</pre>
+C++
+<pre>
+C++의 cin은 기본적으로 스트림을 반환한다. 이를 while문에 넣을 경우, bool형으로의 묵시적 변환을 통해 EOF를 판단할 수 있다.
+while(cin >> a >> b)
+{
+    ...
+}
+</pre>
+Java
+<pre>
+Scanner을 이용했을 때와, BufferedReader를 이용했을 때 각각에 대해 알아보도록 하자.
+// Scanner의 hasNext() 이용
+while (scanner.hasNext())
+{
+    int a = scanner.nextInt();
+    int b = scanner.nextInt();
+
+    ...
+}
+// hasNext()가 없는 BufferedReader는 null 판단
+while ((line = br.readLine()) != null)
+{
+    String[] token = line.split(" ");
+    int a = Integer.parseInt(token[0]);
+    int b = Integer.parseInt(token[1]);
+
+    ...
+</pre>
+Python
+<pre>
+EOF 예외 처리를 하거나, 행 단위로 읽어지는 것을 보고 판단할 수 있다.
+// EOF 예외 처리
+while 1 :
+    try :
+        a, b = map(int, input().split())
+        ...
+    except EOFError:
+        break
+// 표준 입력에서 입력이 없을 때까지 반복
+for line in sys.stdin:
+    A, B = map(int, line.split())
+    ...
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1219. 플로이드 삼각형 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1219</div>
+  <h1>플로이드 삼각형</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	플로이드 삼각형은 칸마다 하나의 수로 채워져 있는 직각 삼각형 모양의 배열이다. 아래는 크기가 $5$인 플로이드 삼각형의 모습이다.
+</p>
+<p style="text-align:center;">
+	<img src="data:image/png;base64&#44;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" alt="" /> 
+</p>
+<p>
+	엄밀히 말하면 플로이드 삼각형의 생성 기준은 다음을 따른다.
+</p>
+<ul>
+	<li>
+		위에서부터 $i$번째 행에는 $i$개의 수가 존재한다.
+	</li>
+	<li>
+		위에서부터 행을 일렬로 이어 붙인 뒤 수를 읽으면 $1&#44; 2&#44; 3&#44; 4&#44; ... $의 형태를 띈다.
+	</li>
+</ul>
+<p>
+	양의 정수 $n$이 주어질 때&#44; 크기 $n$의 플로이드 삼각형을 출력하자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">크기 $n$의 플로이드 삼각형을 출력한다. 행과 행은 개행으로 구분되고&#44; 행의 수와 수는 공백으로 구분되어야 한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$1$을 시작으로 $1$씩 증가하는 변수를 두어 $O(n^2)$에 문제를 해결할 수 있다.
+<pre>
+cnt          ← 1
+for i        ← 1 to n
+    for j    ← 1 to i
+        print 'cnt'
+        cnt++
+    print '\n'
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1218. 수열 출력하기 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1218</div>
+  <h1>수열 출력하기 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 6</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=해_구성하기">해 구성하기</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	양의 정수 $n$이 주어진다. 다음을 만족하는 길이 $n$의 수열 $a_1&#44; a_2&#44; ... &#44; a_n$을 출력하여라.
+</p>
+<ul>
+	<li>
+		모든 $a_i$는 $1&nbsp;≤ a_i&nbsp;≤ 10^6$인 정수이며&nbsp;<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">중복되지 않아야 한다.</span> 
+	</li>
+	<li>
+		$1&nbsp;≤ i&#44; j&nbsp;≤ n$이고 $i&nbsp;≠ j$인 가능한 모든 $(a_i&#44; a_j)$쌍에 대해&#44; $gcd(a_i&#44; a_j) = 1$
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 수열의 길이를 의미하는 정수 $n$이 주어진다. $(1 ≤ n ≤ 50&#44;000)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 문제의 조건을 만족하는 길이 $n$의 수열을 공<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44; 255&#44; 255&#44; 0.6);">백으로 구분하여 출력한다. 만약 조건을 만족하는 수열이 여러 개라면 그 중 아무거나 출력해도 정답으로 인정된다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 3</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$gcd(a_i, a_j) = 1$이라는 것은, $a_i$와 $a_j$가 $2$ 이상의 소인수를 공유하지 않는다는 뜻과 같다. $(a_i ≠ a_j)$<br>
+$n$개의 소수를 생각해보자. 그들에게는 $1$과 자기 자신을 제외한 소인수가 존재하지 않으며, 어떤 두 쌍을 골라 잡아도 최대공약수는 $1$이다.
+<pre>
+// n = 10
+2 3 5 7 11 13 17 19 23 29
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

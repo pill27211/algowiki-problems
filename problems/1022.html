@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1022. 남훈이의 궁금증 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1022</div>
+  <h1>남훈이의 궁금증 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 6</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=imos법">imos법</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	남훈 :&nbsp;<a class="ke-insertfile" href="problem.php?id=1017" target="_blank">저번</a>엔 고마웠어. 그런데 하나 또 궁금한 게&#44;&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">특정 구간 $[l&#44; r]$에 어떤 수 $x$를 더하는 것은 어떻게 빨리 처리할 수 있을까?</span> 
+</p>
+<p>
+	<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">진수 : 구간 전체에 $x$를 더한다고?</span> 
+</p>
+<p>
+	<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">남훈 : 응. 이번에도 $n$이 최대 $100&#44;000$까지 될 수 있고&#44; 더하는 연산도 최대 $100&#44;000$번까지 처리해야 한다고 해보자. 이후 최종 수열의 모습을 구해보는 거지.</span> 
+</p>
+<p>
+	<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">진수 : 최종 수열의 모습만 구하면 되는 거야?</span> 
+</p>
+<p>
+	<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">남훈 : 맞아. 최초 모든 수열의 요소는 $0$이라고 하자.</span> 
+</p>
+<p>
+	<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">진수 : 음...</span> 
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p style="text-wrap:wrap;">
+	첫째 줄에 수열의 길이를 나타내는 정수 $n$과 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다. $(1 ≤ n&#44; Q ≤ 100&#44;000)$
+</p>
+<p style="text-wrap:wrap;">
+	둘째 줄부터 $Q$개의 줄에 걸쳐 $l&#44; r&#44; x$가 공백으로 구분되어 주어진다. $(1 ≤ l ≤ r ≤ n; 1&nbsp;≤ x&nbsp;≤1&#44;000)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">모든 업데이트 처리가 끝난 후의 수열을 출력한다. 각 요소는 공백으로 구분되어야 한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 3
+1 3 1
+2 4 1
+3 5 2</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 4 3 2</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><p>
+	최초 $0&#44; 0&#44; 0&#44; 0&#44; 0$에서 각 업데이트 쿼리에 따른 변화는 아래와 같다.
+</p>
+<p>
+	$1$ $3$ $1$ → $1&#44; 1&#44; 1&#44; 0&#44; 0$
+</p>
+<p>
+	$2$ $4$ $1$&nbsp;→ $1&#44; 2&#44; 2&#44; 1&#44; 0$
+</p>
+<p>
+	$3$ $5$ $2$&nbsp;→ $1&#44; 2&#44; 4&#44; 3&#44; 2$
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

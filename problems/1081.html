@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1081. 다섯 개의 정수 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1081</div>
+  <h1>다섯 개의 정수</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=이분_탐색">이분 탐색</a> <a class="chip" href="../index.html?cat=매개_변수_탐색">매개 변수 탐색</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	다섯 개의 정수 $a&#44; b&#44; c&#44; d&#44; e$와 $k$가 주어진다. 최대 $k$번 만큼 아래 연산을 수행할 수 있을 때&#44; <span style="text-wrap:wrap;">$max(a&#44; b&#44; c&#44; d&#44; e)$의 값을 최대한</span> 최소화해보자.
+</p>
+<ul>
+	<li>
+		임의의 수를 골라 $1$만큼 감소 시킨다. 단&#44; 수가 $0$보다 작아질 순 없다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 정수 $a&#44; b&#44; c&#44; d&#44; e&#44; k$가 공백으로 구분되어 차례대로 주어진다. $(0&nbsp;≤ a&#44; b&#44; c&#44; d&#44; e&#44; k&nbsp;≤ 10^9)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 최대 $k$번 만큼 연산을 수행하여 만들 수 있는 가장 작은 $max(a&#44; b&#44; c&#44; d&#44; e)$의 값을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3 4 5 6 7 8
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><p>
+	입력 예시 $1$
+</p>
+<ul>
+	<li>
+		$c&#44; d&#44; e$에 각각 $1&#44; 2&#44; 3$번 연산을 수행하면 $max(a&#44; b&#44; c&#44; d&#44; e) = 4$가 되고&#44; 이보다 최댓값을 작게 만드는 방법은 존재하지 않는다.
+	</li>
+</ul>
+<p>
+	입력 예시 $2$
+</p>
+<ul>
+	<li>
+		$a&#44; c&#44; e$에 각각 $4&#44; 1&#44; 3$번 연산을 수행하면 $max(a&#44; b&#44; c&#44; d&#44; e) = 1$이 되고&#44; 이보다 최댓값을 작게 만드는 방법은 존재하지 않는다.
+	</li>
+</ul></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	수들의 범위가 크므로 나이브하게 답을 계산할 순 없다. 다음과 같이 결정 문제를 정의해보자.
+</p>
+<p>
+	<ul>
+		<li>
+			$decision(m)$ : $max(a&#44; b&#44; c&#44; d&#44; e)$의 값을 $m$으로 만들 수 있는가?
+		</li>
+	</ul>
+각 결정 문제는 $a&#44; b&#44; c&#44; d&#44; e$ 각각이 $m$보다 얼마나 큰지를 누적해 주고&#44; 전체 누적값이 $k$ 이하 인지로 보아 판단할 수 있다.
+</p>
+<p>
+	적당한 $m$을 찾는 데에 $O(logk)$&#44; 각 결정 문제를 푸는 데에 $O(1)$로 총 $O(logk)$의 시간 복잡도로 문제를 해결할 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

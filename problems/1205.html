@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1205. 공백을 기준으로 문자열 자르기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1205</div>
+  <h1>공백을 기준으로 문자열 자르기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a> <a class="chip" href="../index.html?cat=파싱">파싱</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">알파벳 소문자와 대문자&#44; 공백&#44; 특수 문자(!?@#%.&#44;)로만 이루어진 문자열 $S$가 주어진다. <span style="text-wrap:wrap;">$S$를&nbsp;</span>공백을 기준으로 잘라보자. 공백이 연속해서 붙어 있는 경우는 하나로 봐야 한다.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 문자열 $S$가 주어진다. $S$는 공백으로 시작하거나 끝나지 않는다. $(1 ≤ |S| ≤ 1&#44;000)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄부터 한 줄에 하나씩 공백으로 분리된 $S$의 부분 문자열들을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">Hello! This is Algorithm Wiki.</pre></div><div><div class="io-h">예제 출력</div><pre class="io">Hello!
+This
+is
+Algorithm
+Wiki.</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">언어별로 공백을 기준으로 문자열을 자르는 방법을 소개해 보겠다.<br>
+C
+<pre>
+char str[] = "This is a test sentence";
+char *token = strtok(str, " ");
+
+while (token != NULL)
+{
+    printf("%s\n", token);
+    token = strtok(NULL, " ");
+}
+</pre>
+C++
+<pre>
+string str = "This is a test sentence";
+stringstream ss(str);
+
+for(string token; ss >> token;)
+    cout << token << '\n';
+</pre>
+Java
+<pre>
+String str = "This is a test sentence";
+String[] words = str.split("\\s+");
+
+for(String word : words)
+    System.out.println(word);
+</pre>
+Python
+<pre>
+str = "This is a test sentence";
+words = str.split()
+
+for token in words:
+    print(token)
+</pre>
+<br>
+이외에도 다양한 방법들이 있으니, 다방면으로 풀어 보는 것을 추천한다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

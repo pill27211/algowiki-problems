@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1101. 빛이 나는 사람 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1101</div>
+  <h1>빛이 나는 사람</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 5</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=트리를_사용한_집합과_맵">트리를 사용한 집합과 맵</a> <a class="chip" href="../index.html?cat=슬라이딩_윈도우">슬라이딩 윈도우</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$N$명의 사람이 맨 왼 쪽부터 {$1$번 사람&#44; $2$번 사람&#44; ... &#44; $N$번 사람}의 형태로 늘어서 있다. 그들은 각각 $a_i$의 키를 가지며 키가 같은 사람은 존재하지 않는다.
+</p>
+<p>
+	이제 이들을 대상으로 너비 $w$만큼 찍을 수 있는 카메라를 이용해 맨 왼 쪽부터 사진을 찍을 것이다. 사람 한 명당 너비 $1$을 차지 하며&#44; 카메라는 너비 $1$씩 오른 쪽으로 움직인다. 사진에 $N$번째 사람이 찍히고 나면 촬영을 종료한다. 다음을 보자.
+</p>
+<ul>
+	<li>
+		첫 번째 사진에는 $1&#44; 2&#44; ... &#44; w$번 사람이 찍힌다. 두 번째 사진에는 $2&#44; 3&#44; ...&#44; w+1$&#44; $i$번째 사진에는 $i&#44; i+1&#44; ... &#44;$ $w$+$i$-$1$번 사람이 찍힌다.
+	</li>
+	<li>
+		$N$번째 사람이 사진에 찍힌 직후 촬영이 종료되므로&#44; $N$과 $w$에 대해 $N$-$w$+$1$장의 사진이 나온다.
+	</li>
+	<li>
+		각 사진에 대해 키가 가장 큰 사람을 특정할 수 있다. 이 사람은 <strong>빛이 나는 사람</strong>이다.
+	</li>
+</ul>
+<p>
+	$N$명의 사람에 대한 $a_1&#44; a_2&#44; ... &#44; a_N$과 $w$가 주어졌을 때&#44; $1&#44; 2&#44; ... &#44;$ $N$-$w$+$1$번 사진에서 빛이 나는 사람의 키를 구해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 사람의 수 $N$과 카메라가 사진 한 장에 담을 수 있는 너비 $w$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ w&nbsp;≤ N&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄에 사람들의 키 $a_1&#44; a_2&#44; ... &#44; a_N$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ a_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">$1&#44; 2&#44; ... &#44;$ $N$-$w$+$1$번 사진에서 빛이 나는 사람의 키를 공백으로 구분하여 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7 3
+3 7 5 2 4 1 6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">7 7 5 4 6</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><p>
+	$N = 7&#44; w = 3$ 이므로 총 $N$-$w$+$1$ $= 5$장의 사진이 찍힌다. 각 사진에서 빛이 나는 사람을 표시하면 다음과 같다.
+</p>
+<ol>
+	<li>
+		$3$&nbsp;<u><strong>7</strong></u>&nbsp;$5$
+	</li>
+	<li>
+		<strong><u>7</u></strong>&nbsp;$5$ $2$
+	</li>
+	<li>
+		<strong><u>5</u></strong>&nbsp;$2$ $4$
+	</li>
+	<li>
+		$2$&nbsp;<strong><u>4</u></strong>&nbsp;$1$
+	</li>
+	<li>
+		$4$ $1$&nbsp;<strong><u>6</u></strong> 
+	</li>
+</ol></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	우리는 다음 문제를 해결해야 한다.
+</p>
+<p>
+	<ul>
+		<li>
+			길이 $w$의 부분 연속 수열을 유지해야 한다.
+		</li>
+		<li>
+			매 순간마다 현재 관리하는 부분 연속 수열에서 최댓값을 찾아야 한다.
+		</li>
+		<li>
+			매 순간마다 새로운 원소 하나가 추가되고&#44; 기존 원소 하나가 제거된다.
+		</li>
+	</ul>
+$N ≤ 100&#44;000$ 이므로 각 문제를 빠르게 해결할 수 있어야 한다. 이를 트리 기반의 $set$ 자료구조를 통해 처리해 주도록 하자.
+</p>
+<p>
+	매 순간마다 $O(logw)$의 연산을 소모하므로 문제를 총 $O(Nlogw)$에 해결할 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

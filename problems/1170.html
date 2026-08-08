@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1170. 달리기 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1170</div>
+  <h1>달리기 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=유클리드_호제법">유클리드 호제법</a> <a class="chip" href="../index.html?cat=시뮬레이션">시뮬레이션</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	두 선수 $A&#44; B$가 달리기 트랙 위에 서있다. $A&#44; B$는 각각 $1$초 당 $l_A$ $m$&#44; $l_B$ $m$ 씩 직선거리를 주파할 수 있다. 이때&#44; 그들이 서있는 달리기 트랙의 총 길이는 대결을 하는 두 선수의 달리기 속도의 최소 공배수와 같다.
+</p>
+<p>
+	구체적으로 달리기 대결을 하는 두 선수 $A&#44; B$의 $l_A&#44; l_B$에 대해 달리기 트랙의 총 길이 $D$는 $D = lcm(l_A&#44; l_B)$ $m$로 정의된다.
+</p>
+<p>
+	$l_A&#44; l_B$가 주어졌을 때&#44; $B$의 입장에서 본다면 정확히 몇 초 후에 출발해야 $A$와 동시에 결승선을 통과할 수 있을까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 $l_A&#44; l_B$가 공백으로 구분되어 주어진다. $(1 ≤ l_A&#44; l_B ≤ 1&#44;000; l_A ≤ l_B)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 $D$와&#44; $B$가 $A$와 동시에 결승선을 통과하기 위해 기다려야 할 시간을 공백으로 구분하여 출력한다. 각각의 단위는 $m&#44; s$로 계산한다.
+</p>
+<p>
+	두 선수는 직선거리만을 주파하며&#44; $l_A&#44; l_B$를 제외한 다른 외부 요인은 무시한다.
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7 9
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">63 2</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><ul>
+	<li>
+		입력 예시 $1$
+	</li>
+	<ul>
+		<li>
+			달리기 트랙의 길이 $D = lcm(7&#44; 9) = 63$ 에서 $A$는 $9$초 뒤에 결승선을 통과할 수 있고 $B$는 $7$초 뒤에 결승선을 통과할 수 있다. 따라서&#44; $B$가 $A$와 동시에 결승선을 통과하기 위해선 $2$초 동안 기다린 후 출발해야 한다.
+		</li>
+	</ul>
+	<li>
+		입력 예시 $2$
+	</li>
+	<ul>
+		<li>
+			$l_A = l_B$ 이므로 $B$가 기다렸다가 출발할 필요가 없다.
+		</li>
+	</ul>
+</ul></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">우선 $D = lcm(l_A, l_B)$의 값을 구하자. $1 ≤ l_A, l_B ≤ 1,000$ 이므로 나이브하게 $D$를 구해도 충분히 문제를 해결할 수 있다.<br />
+<p>
+	이제 이 $D$를 이용해 두 선수가 결승선을 통과하는 데에 걸리는 시간을 계산할 수 있다.
+</p>
+<p>
+	<ul>
+		<li>
+			$A$는 $\frac{D}{l_A}$ 초 뒤에 결승선을 통과한다.
+		</li>
+		<li>
+			$B$는 $\frac{D}{l_B}$ 초 뒤에 결승선을 통과한다.
+		</li>
+	</ul>
+$l_A ≤ l_B$ 이므로, $B$는 $\frac{D}{l_A} - \frac{D}{l_B}$ 초 뒤에 출발해야 $A$와 동시에 결승선을 통과할 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

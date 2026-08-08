@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1107. 유통기한 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1107</div>
+  <h1>유통기한</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a> <a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	유통기한이 임박한 $n$개의 음식이 있다. $i$번째 음식은 유통기한 $D_i$를 가지며&#44; 유통기한을 넘어간 음식은 먹을 수 없게 된다.
+</p>
+<p>
+	편의 상 오늘을 $1$일이라고 가정하자. 이에 따라 $D_i$ = $1$인 음식의 경우 오늘이 지나는 즉시 먹을 수 없게 된다.
+</p>
+<p>
+	당신은 <strong>가능한 최대로</strong> 음식을 먹으려고 하지만&#44; 당신도 사람인지라 하루에 최대로 먹을 수 있는 음식의 수 $k$가 존재한다. 각 음식의 유통기한과 $k$가 주어졌을 때&#44; 당신은 최대 몇 개의 음식을 먹을 수 있을까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 음식의 개수 $n$과 당신이 하루에 먹을 수 있는 음식의 최대치 $k$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ n ≤ 100&#44;000; 1 ≤ k ≤ 100)$
+</p>
+<p>
+	둘째 줄에 $D_1&#44; D_2&#44; ... &#44; D_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ D_i&nbsp;≤ 1&#44;000)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 문제의 정답을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7 2
+1 1 1 2 2 2 3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">5</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	우선 $D_1&#44; D_2&#44; ... &#44; D_n$을 오름차순으로 정렬하자. 이후 $1&#44; 2&#44; 3&#44; ...$로 증가하는 변수 $day$를 두고 다음을 따라 문제를 해결할 수 있다.
+</p>
+<p>
+	<ol>
+		<li>
+			$D_1$을 시작으로&#44; 최대 $k$개만큼 음식을 먹는다.
+		</li>
+		<li>
+			$D_i == day$인 남은 음식들을 건너 뛴다.
+		</li>
+		<li>
+			$day$가 $1$ 증가한다.<br />
+		</li>
+	</ol>
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

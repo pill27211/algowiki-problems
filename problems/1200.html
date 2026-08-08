@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1200. 수열 내전 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1200</div>
+  <h1>수열 내전</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	모든 요소가 양의 정수인 길이 $n$의 수열 $a_1&#44; a_2&#44; ... &#44; a_n$이 주어진다. $S_1&#44; S_2$를 다음과 같이 정의하자.
+</p>
+<p>
+	<ul>
+		<li>
+			$S_1$ : 수열 $a_n$의 홀수번째 항들의 합
+		</li>
+		<li>
+			$S_2$ : 수열 $a_n$의 짝수번째 항들의 합
+		</li>
+	</ul>
+	<p>
+		위 정의에 따른 $S_1$과 $S_2$에 대해 $S_1 &gt; S_2$라면 "<span style="color:#0d0d0d;">ODD"를&#44; $S_1 &lt; S_2$라면 "EVEN"을 출력하는 프로그램을 작성하여라.</span>
+	</p>
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 수열의 길이를 의미하는 정수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ a_i&nbsp;≤ 1&#44;000)$
+</p>
+<p>
+	$S_1$과 $S_2$가 같은 경우는 입력으로 주어지지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $S_1$과 $S_2$의 비교에 따른 결과 문구를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+1 2 3 4 5 6</pre></div><div><div class="io-h">예제 출력</div><pre class="io">EVEN</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">문제에서 요구하는 것을 착실히 구현해주면 된다. 출력 문구는 정확해야 함을 유의하자.
+<pre>
+S1 = 0, S2 = 0
+for i    ← 1 to N
+	x    ← i번째 요소 입력
+	if i가 홀수
+		S1 += x
+	else
+		S2 += x
+
+if S1 > S2
+	....
+else
+	....
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

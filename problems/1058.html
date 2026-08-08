@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1058. 수 통일하기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1058</div>
+  <h1>수 통일하기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	모든 수가 양의 정수인 길이 $n$의 수열 $a_1&#44; a_2&#44; ... &#44; a_n$이 주어진다. 아래 연산을 <strong>최소한으로</strong> 수행해 수열의 모든 수를 같게 만들 수 있을까?
+</p>
+<ul>
+	<li>
+		$1&nbsp;≤ l&nbsp;≤ r&nbsp;≤ n$ 인 $l&#44; r$을 고른 후 $[l&#44; r]$에 $1$을 더한다.
+	</li>
+</ul>
+<p>
+	예를 들어 수열이 $5&#44; 3&#44; 2&#44; 2&#44; 5$ 라고 하자. $[2&#44; 2]$에 $2$번의 연산을 적용한 뒤 $[3&#44; 4]$에 $3$번의 연산을 적용하면 $5$번의 연산으로 모든 수를 같게 만들 수 있다.
+</p>
+<p>
+	한편&#44; $[2&#44; 4]$에 $2$번의 연산만 적용한 뒤 $[3&#44; 4]$에 $1$번의 연산을 적용하면 $3$번의 연산으로 모든 수를 같게 만들 수 있고&#44; 이보다 적게 연산을 수행해 모든 수를 같게 만드는 방법은 없다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 수열의 길이를 의미하는 정수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ a_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 수열의 모든 수를 같게 만들기 위해 사용하는 연산의 최소 횟수를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5
+5 3 2 2 5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">3</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

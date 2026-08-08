@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1003. 문자열 뒤집기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1003</div>
+  <h1>문자열 뒤집기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">알파벳 소문자&#44; 대문자 및 숫자와 공백으로만 이루어진 문자열이 주어진다. 이 문자열을 뒤집어서 다시 출력해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 문자열 $S$가 주어진다. $(1 ≤ |S| ≤ 10^5)$
+</p>
+<p>
+	$S$는 공백으로 시작하거나 끝나지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 뒤집어진 $S$를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">Hello World!
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">!dlroW olleH
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">C/C++에서 공백이 포함된 문자열을 받기 위해선 약간의 주의가 필요하다.<br>
+C
+<pre>
+char str[100005] = {0,}; // 최대 크기보다 조금 더 넉넉하게 잡아 주는 것이 좋다.
+
+// fgets()를 이용한 방법. 개행 문자까지 가져옴을 유의하자.
+fgets(str, sizeof str, stdin);
+// scanf()의 입력 포맷을 변경하는 방법.
+scanf("%[^\n]s", str);
+</pre>
+C++
+<pre>
+std::string str;
+getline(std::cin, str);
+</pre>
+Java
+<pre>
+Scanner scanner = new Scanner(System.in);
+String str = scanner.nextLine();
+</pre>
+Python
+<pre>
+str = input()
+</pre>
+<br>
+문자열을 뒤집는 데에는 다양한 방법을 떠올려볼 수 있다. 간단한 방식을 나열해보자. <div style="width:100%;height:10px;"></div>
+<li> 문자열의 맨 뒤에서부터 거꾸로 순회하며 출력해준다. </li>
+<li> 문자열을 뒤집은 후 출력해준다. C++의 경우 &lt;algorithm&gt; 헤더에 std::reverse()가 있다. </li>
+<li> 스택(Stack) 자료구조에 문자열의 문자를 차례대로 넣은 후, 다시 뽑으면서 출력해준다. </li>
+<br>
+이외에도 다양한 방법을 생각해 볼 수 있으며, 자신이 편한 방식으로 문제를 해결하면 되겠다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1034. 집합에 속한 문자열 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1034</div>
+  <h1>집합에 속한 문자열</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	원소가 모두 문자열인 집합 $U$ = {$s_1&#44; s_2&#44; ... &#44; s_N$}가 주어진다.
+</p>
+<p>
+	아래 쿼리를 수행하는 프로그램을 작성해보자.
+</p>
+<ul>
+	<li>
+		$k$ : 집합 $U$에 문자열 $k$가 속해 있다면 $1$&#44; 속해있지 않다면 $0$을 출력한다. $(1 ≤ |k| ≤ 100)$
+	</li>
+</ul>
+<p>
+	$k$는 알파벳 소문자로만 구성된 문자열이다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 집합의 크기 $N$과 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다. $(1 ≤ N&#44; Q ≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄에 $s_1&#44; s_2&#44; ... &#44; s_N$이&nbsp;<span style="color:#202124;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">공백으로 구분되어 주어진다.<span style="text-wrap:wrap;">&nbsp;$s_i$는 알파벳 소문자로만 구성된 문자열이다. $(1 ≤ |s_i| ≤ 100)$</span><span style="text-wrap:wrap;"><span style="text-wrap:wrap;"></span></span></span> 
+</p>
+<p>
+	<span style="color:#202124;font-family:font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">셋째 줄부터 $Q$개의 줄에 걸쳐 쿼리가 주어진다.</span> 
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 쿼리가 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 5
+pill kiwi hun hoj algowiki
+hun
+algokiwi
+kiwi
+algowiki
+hoi
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+0
+1
+1
+0</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	본 문제를 해결하는 가장 나이브한 방식을 떠올려보자. 이는 곧 쿼리가 주어질 때마다 집합 전체를 순회하며 답을 찾는 것이다.
+</p>
+<p>
+	이 경우 연산량은 쿼리 당 집합의 크기$(N)$와 문자열의 길이$(|s_i|)$에 비례하므로 $O(N|s_i| \times Q)$의 시간복잡도를 갖게 된다.
+</p>
+<p>
+	제한을 보면 이 방법으로도 충분히 문제를 해결할 수 있는데, 만약 제한이 크다면 어떻게 문제를 해결해야 할까?
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

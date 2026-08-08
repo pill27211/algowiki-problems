@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1199. 문자열 재조합하기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1199</div>
+  <h1>문자열 재조합하기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	알파벳 소문자로만 이루어진 문자열 $S_1$이 주어진다. 문자열 $S_2&#44; S_3&#44; S_4$를 다음과 같이 정의할 때&#44; $S_4$를 구해보자.
+</p>
+<ul>
+	<li>
+		$S_2$ : $S_1$의 홀수번째 문자들을 차례대로 이어붙인 문자열
+	</li>
+	<li>
+		$S_3$ : $S_1$의 짝수번째 문자들을 차례대로 이어붙인 문자열
+	</li>
+	<li>
+		$S_4$ : $S_2$과 $S_3$를 차례대로 이어붙인 문자열
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 알파벳 소문자로만 이루어진 문자열 $S_1$이 주어진다. $(1&nbsp;≤ |S_1|&nbsp;≤ 1&#44;000)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $S_4$를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">algowiki</pre></div><div><div class="io-h">예제 출력</div><pre class="io">agwkloii</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">문제에서 정의한 $S_2, S_3$를 각각 구해놓고, 최종적으로 둘을 이어 정답을 완성하자.
+<pre>
+S2, S3    ← 빈 문자열
+for i      ← 1부터 S1의 길이만큼 증가
+	if i가 홀수
+		S2 += S1[i]
+	else
+		S3 += S1[i]
+
+S1 + S2 출력
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

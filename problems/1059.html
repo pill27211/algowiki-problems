@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1059. $\cfrac{A}{B}$ $+$ $\cfrac{C}{D}$ = $\cfrac{E}{F}$ · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1059</div>
+  <h1>$\cfrac{A}{B}$ $+$ $\cfrac{C}{D}$ = $\cfrac{E}{F}$</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=유클리드_호제법">유클리드 호제법</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p style="text-align:center;">
+	$\cfrac{A}{B}$ $+$ $\cfrac{C}{D}$ $=$ $\cfrac{E}{F}$
+</p>
+<p style="text-align:left;">
+	문제는 간단하다. 위 식에서 $A&#44; B&#44; C&#44; D$가 주어졌을 때&#44; $E&#44; F$를 구하면 된다. 단&#44; $E$와 $F$는 반드시 <strong>서로소</strong>여야 한다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $A&#44; B&#44; C&#44; D$가 공백으로 구분되어 주어진다. <span style="text-wrap:wrap;">$(1&nbsp;≤ A&#44; B&#44; C&#44; D ≤ 10^9)$</span><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"></span></span></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">$E$와 $F$를 공백으로 구분하여 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">1 3 1 4
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">7 12</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">어떤 두 수 $x&#44; y$가 서로소라 함은&#44; $gcd(x&#44; y) = 1$임과 동치이다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;">우선 $\cfrac{E}{F}$를 구하자. 이는 곧 $\cfrac{A \times D + C \times B}{B \times D}$와 같다.</span><span style="text-wrap:wrap;">&nbsp;$E$와 $F$가 서로소여야 하므로&#44; 각각을 $gcd(E&#44; F)$로 나누어주면 된다.</span><span style="text-wrap:wrap;">
+<p>
+	수의 범위가 작지 않으니 모든 과정에서 자료형에 유의하자. $gcd(E&#44; F)$ 역시 유클리드 호제법을 이용해 빠르게 구해 주어야 한다.
+</p>
+</span></span></span></span></span></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

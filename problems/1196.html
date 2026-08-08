@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1196. 제곱 회귀 수 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1196</div>
+  <h1>제곱 회귀 수</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=런타임_전의_전처리">런타임 전의 전처리</a> <a class="chip" href="../index.html?cat=문자열">문자열</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=브루트포스_알고리즘">브루트포스 알고리즘</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	어떤 자연수 $x$에 대해&#44; 다음의 과정을 거쳐 $x$가 '제곱 회귀 수'인지 판단할 수 있다.
+</p>
+<ol>
+	<li>
+		$y = x^2$인 $y$를 계산한다.
+	</li>
+	<li>
+		$y$의 적당한 위치에서 $y$를 자른다. $y$는 두 수로 나누어진다.
+	</li>
+	<li>
+		나누어진 두 수를 더했을 때&#44; 그 수가 다시 $x$가 된다면 $x$는 '제곱 회귀 수'이다.
+	</li>
+</ol>
+<p>
+	예를 들어&nbsp;$x = 45$인 경우를 보자. $y = 2025$이고 $y$가 $20$&#44; $25$로 나누어지도록 자르면 $20+25 = 45$ 이므로 $45$는 '제곱 회귀 수'이다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">입력은 없다.</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄부터 한 줄에 하나씩 $10^8$보다 작거나 같은 '제곱 회귀 수'를 오름차순으로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div></div><div><div class="io-h">예제 출력</div><pre class="io">9
+10
+45
+.
+.
+(생략)
+.
+.
+99999999
+100000000</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$1&#44; 2&#44; ... &#44; 10^8$인 모든 수들에 대해 검사를 진행해도 된다. 단&#44; 이를 런타임에 진행할 경우 제한 시간 내에 문제를 해결할 수 없다.<br />
+<p>
+	제출하기 전에&#44; 만약 로컬에서 답이될 수들을 모두 뽑아놓는다면 어떨까? 실제 제출에서는 이 답들을 그대로 출력해주는 것이다.
+</p>
+<p>
+	출제자가 의도한 풀이가 바로 이것으로&#44; '런타임 전의 전처리'라는 이름으로 불리는 풀이 방식이다.
+</p>
+<p>
+	<br />
+</p>
+$PS.$ 로컬에서 돌려보면 알겠지만&#44; $10^8$보다 작은 '제곱 회귀 수'는 그리 많지 않다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

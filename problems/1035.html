@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1035. 사분면 판단 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1035</div>
+  <h1>사분면 판단</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=기하학">기하학</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p style="text-align:center;">
+	<img src="../assets/upload/54.180.97.171/image/20231215/20231215124029_19198.jpg" alt="" / 
+</p>
+<p style="text-align:center;">
+	<br />
+</p>
+<p style="text-align:left;">
+	점 $(x&#44; y)$가 주어진다. 이 점이 어느 사분면 위에 존재하는 점인지 판단해 보자.
+</p>
+<p style="text-align:left;">
+	<br />
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 테스트 케이스의 개수 $T$가 주어진다. $(1 ≤ T ≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $T$개의 줄에 걸쳐 $x&#44; y$가 공백으로 구분되어 주어진다. $(-1&#44;000&nbsp;≤ x&#44; y&nbsp;≤ 1&#44;000)$
+</p>
+<p>
+	$x&#44; y$가 $0$인 입력은 주어지지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 테스트 케이스에 대해 그에 맞는 정답을 $T$개의 줄에 걸쳐 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+1 2
+-2 -2
+3 -3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+3
+4</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	제 $1, 2, 3, 4$사분면에 대해 $x, y$의 부호가 각각 어떻게 돼야 하는지를 확인하자.
+</p>
+<p>
+	<ul>
+		<li>
+			$1$ 사분면 : $x(+), y(+)$
+		</li>
+		<li>
+			$2$ 사분면 : $x(-), y(+)$
+		</li>
+		<li>
+			$3$ 사분면 : $x(-), y(-)$
+		</li>
+		<li>
+			$4$ 사분면 : $x(+), y(-)$
+		</li>
+	</ul>
+위를 바탕으로, 조건문을 통해 점의 대략적인 위치를 판단해줄 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

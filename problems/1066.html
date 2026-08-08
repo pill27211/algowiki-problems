@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1066. DFS와 BFS 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1066</div>
+  <h1>DFS와 BFS 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 3.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=그래프_탐색">그래프 탐색</a> <a class="chip" href="../index.html?cat=깊이_우선_탐색">깊이 우선 탐색</a> <a class="chip" href="../index.html?cat=너비_우선_탐색">너비 우선 탐색</a> <a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$N$개의 정점과 $M$개의 간선으로 이루어진 무향 그래프 $G$가 주어진다. $G$에 대해 깊이 우선 탐색(DFS)과 너비 우선 탐색(BFS)을 수행한 결과를 출력하자. $G$는 다음을 만족한다.
+</p>
+<ul>
+	<li>
+		정점 $u&#44; v$를 잇는 간선이 있을 때&#44; $u$와 $v$가 같은 경우는 존재하지 않는다.
+	</li>
+	<li>
+		<span style="text-wrap:wrap;">어느 두 정점을 골라도 두 정점을 잇는 경로는 반드시 존재한다.</span> 
+	</li>
+	<li>
+		<span style="text-wrap:wrap;"><span style="text-wrap:wrap;">두 정점을 직접적으로 잇는 간선은 최대 한 개 이하이다.</span></span> 
+	</li>
+</ul>
+<p>
+	DFS와 BFS를 수행함에 있어서 아래의 규칙을 따라야 한다.
+</p>
+<ul>
+	<li>
+		처음 탐색을 시작하는 정점은 $1$번 정점이다.
+	</li>
+	<li>
+		임의의 정점에서 다음으로 방문할 수 있는 정점이 여러 개라면&#44; 번호가 작은 정점부터 탐색한다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $N$과 $M$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ N ≤ 100&#44;000; 1 ≤ M ≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $M$개의 줄에 걸쳐 $M_i$번째 간선이 잇는 두 정점 $u&#44; v$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ u&#44; v&nbsp;≤ N)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 DFS에서 $1&#44; 2&#44; ... &#44; N$번째로 방문되는 정점을 공백으로 구분하여 출력한다.
+</p>
+<p>
+	둘째 줄에 BFS에서 $1&#44; 2&#44; ... &#44; N$번째로 방문되는 정점을 공백으로 구분하여 출력한다.
+</p>
+<p>
+	<span style="text-wrap:wrap;"></span> 
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 6
+1 2
+1 3
+2 3
+2 4
+3 5
+4 5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 3 5 4
+1 2 3 4 5</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

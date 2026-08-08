@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1088. 소인수분해 (Small) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1088</div>
+  <h1>소인수분해 (Small)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=소수_판정">소수 판정</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">양의 정수 $n$이 주어진다. $n$을 소인수분해하는 프로그램을 작성해 보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 양의 정수 $n$이 주어진다. $(2 ≤ n&nbsp;≤ 10^6)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $n$을 소인수분해한 결과를 공백으로 구분하여 출력한다. 단&#44; 소인수가 $2$개 이상일 경우 오름차순으로 출력해야 한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">12
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2 2 3</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$n$을 소인수분해 하는 가장 나이브한 방식을 떠올려보자.
+이는 다음과 같을 것이다.
+<pre>
+while n > 1
+    for i    ← 2 to n
+        if n % i == 0
+            print i
+            n /= i
+            break
+</pre>
+이 방법은 최악의 경우 $O(n)$의 시간 복잡도를 갖지만, $(2 ≤ n ≤ 10^6)$ 이므로 충분히 문제를 해결할 수 있다.<br>
+만약 $n$이 훨씬 크다면 어떻게 해결해야 할까?</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

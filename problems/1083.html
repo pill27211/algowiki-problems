@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1083. 1 : N 최단 경로 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1083</div>
+  <h1>1 : N 최단 경로 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=다익스트라">다익스트라</a> <a class="chip" href="../index.html?cat=최단_경로">최단 경로</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$N$개의 정점과 가중치 있는 $M$개의 간선으로 이루어진 유향 그래프 $G$가 주어진다. $1$번 정점으로부터 $2&#44; 3&#44; ... &#44; N$번 정점으로의 최단 경로를 모두 구해보자. $G$는 다음을 만족한다.
+</p>
+<ul>
+	<li>
+		자기 자신에게 향하는 간선은 존재하지 않는다.
+	</li>
+	<li>
+		어떤 두 정점을 직접적으로 잇는 간선은 두 개 이상 존재하지 않는다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 $N&#44; M$이 공백으로 구분되어 주어진다. $(2 ≤ N ≤ 50&#44;000; 1 ≤ M ≤ 200&#44;000)$<br />
+둘째 줄부터 $M$개의 줄에 걸쳐 $u&#44; v&#44; w$가 공백으로 구분되어 주어진다. $(1 ≤ u&#44; v ≤ N; 1 ≤ w ≤ 10^9)$ 이는 정점 $u$에서 정점 $v$로 향하는 가중치 $w$의 간선이 존재한다는 의미이다.<br /></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $1$번 정점으로부터 $2&#44; 3&#44; ... &#44; N$번 정점에 도달하는 최단 거리를 공백으로 구분하여 출력한다. $1$번 정점으로부터 도달할 수 없는 정점의 최단 거리는 $-1$이다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8 9
+1 2 1
+2 3 2
+2 5 10
+3 4 3
+4 5 3
+5 6 2
+4 6 3
+6 7 3
+1 7 1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 3 6 9 9 1 -1</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

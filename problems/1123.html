@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1123. xorand · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1123</div>
+  <h1>xorand</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a> <a class="chip" href="../index.html?cat=애드_혹">애드 혹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$개의 양의 정수로 이루어진 수열 $a_1&#44; a_2&#44; ... &#44; a_n$이 있다. 우리는 이 수열에 대해 아래의 연산을 자유롭게 시행할 수 있다.
+</p>
+<ul>
+	<li>
+		<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$1 ≤ l ≤ r ≤ n$인&nbsp;</span>$l&#44; r$을 골라 $a_l&#44; a_{l+1}&#44; ... &#44; a_{r-1}&#44; a_r$을 $a_l$ $⊕$ $1&#44; a_{l+1}$ $⊕$ $1&#44; ... &#44; a_{r-1}$ $⊕$ $1&#44; a_r$ $⊕$ $1$로 바꾼다.</span></span> 
+	</li>
+</ul>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">또한&#44; 이 연산을 <strong>최소한</strong>으로 수행하여 주어진 수열을 다음을 만족하는 수열로 바꾸려고 한다.</span> 
+</p>
+<ul>
+	<li>
+		<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$a_1$ $\&amp;$ $1&#44; a_2$&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$\&amp;$</span> $1$$&#44; ... &#44;$ $a_{n-1}$&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$\&amp;$</span> $1&#44; a_n$&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$\&amp;$</span> $1$의 값이 전부 동일하다.</span> 
+	</li>
+</ul>
+<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">수열 $a_n$이 주어질 때&#44; 위를 만족하는 수열로 바꾸기 위해 필요한 <strong>최소한</strong>의 연산 횟수를 구해보자. $⊕$<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">&nbsp;와</span>&nbsp;$\&amp;$는 각각&nbsp;<a class="ke-insertfile" href="https://en.wikipedia.org/wiki/Bitwise_operation#:~:text=0%20(decimal%2010)-&#44;XOR&#44;-%5Bedit%5D" target="_blank">Bitwise XOR</a>&#44;&nbsp;<a class="ke-insertfile" href="https://en.wikipedia.org/wiki/Bitwise_operation#:~:text=an%20unsigned%20integer.-&#44;AND&#44;-%5Bedit%5D" target="_blank">Bitwise AND</a>&nbsp;연산을 의미한다.</span></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 수열의 길이 $n$이 주어진다.&nbsp;$(1 ≤ n ≤ 200&#44;000)$
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ a_i ≤ 1&#44;000)$</span>
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 문제의 정답을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8
+1 3 2 2 4 5 10 6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$1$과의 비트 연산만을 진행함에 주목하자. 결국 우리가 만들고자 하는 최종 상태는 둘 중 하나이다.
+</p>
+<p>
+	<ul>
+		<li>
+			$a_1&#44; a_2&#44; ... &#44; a_n$이 모두 짝수
+		</li>
+		<li>
+			$a_1&#44; a_2&#44; ... &#44; a_n$이 모두 홀수
+		</li>
+	</ul>
+따라서&#44; 답은 $min($연속한 홀수 구간의 개수&#44; 연속한 짝수 구간의 개수$)$가 된다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

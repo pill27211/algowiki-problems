@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1055. 필선이는 잠이 자고 싶어 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1055</div>
+  <h1>필선이는 잠이 자고 싶어 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 5</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=그래프_탐색">그래프 탐색</a> <a class="chip" href="../index.html?cat=너비_우선_탐색">너비 우선 탐색</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	<strong>필선이는 어서 빨리 잠에 들고 싶다.</strong> 
+</p>
+<p>
+	필선이는&nbsp;<a class="ke-insertfile" href="problem.php?id=1018" target="_blank">그동안 살던 집</a>을 뒤로하고&#44; 새 집으로 이사하기로 마음 먹었다. 이전 집에서의 이동 방식은 너무 느렸던 것이 이유였다.
+</p>
+<p>
+	이번 집 역시 $10^5$개의&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">방이 일렬로 늘어서 있으며&#44;&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">각 방에는 $1&#44; 2&#44; ... &#44; 10^5$<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">의 번호가 순서대로 메겨져 있다.</span></span></span> 
+</p>
+<p>
+	새로 이사한 집은 무려 $ \times 2$만큼 이동이 가능한데&#44; 구체적으로 다음과 같다.
+</p>
+<ul>
+	<li>
+		필선이가 $x$번 방에 있을 때&#44; $x \times 2$번 방으로 이동한다. 예를 들어 $x = 5$라면 $10$번 방으로 이동할 수 있다.
+	</li>
+	<li>
+		필선이가 $x$번 방에 있을 때&#44; $x-3$번 방으로 이동한다. 예를 들어 $x = 5$라면 $2$번 방으로 이동할 수 있다.
+	</li>
+	<li>
+		<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">어떤 이동을 할 땐 $1$초의&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">시간이 걸리며&#44; 이동 중간에 멈출 수 없다.</span></span> 
+	</li>
+	<li>
+		<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">번호가 $1$<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">보다 작거나 $10^5$보다&nbsp;<span style="color:rgba(0&#44;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">큰 방은 존재하지 않는다.</span></span></span> 
+	</li>
+</ul>
+<p>
+	필선이는 현재 $p$번 방에 있고&#44; 잠을 잘 수 있는 침대는 $q$번 방에 있다. 필선이가 $q$번 방에 도달하는 가장 빠른 시간은 몇 초 후일까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 $p&#44; q$가 공백으로 구분되어 주어진다. $(1 ≤ p&#44; q ≤ 10^5)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 필선이가 $q$번 방에 도달하는 가장 빠른 시간을 출력한다. 만약 영원히 $q$번 방에 도달할 수 없다면&#44; $-1$을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">2 8
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">필선이는&#44; 적어도 가지 못하는 방은 없었던 이전 집을 그리워하고 있는 듯하다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	그래프로 해석해보자. 하나의 이동은 곧 특정 방에서 다른 방으로 향하는 간선으로 해석할 수 있다.
+</p>
+<p>
+	가중치가 $1$로 동일하며 제한이 $1 ≤ p&#44; q ≤ 10^5$ 이므로&#44; $10^5$개의 기록용 배열을 둔 후 $BFS$를 이용해 간단하게 문제를 해결할 수 있다.
+</p>
+<p>
+	할당된 인덱스의 범위를 넘어선 접근이 일어나지는 않는지 유의하자.
+</p>
+$1$과 달리 도달할 수 없는 방이 존재하기 때문에&#44; 갱신 여부를 확인하여 답을 출력해줄 수 있다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1226. 명예의 전당 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1226</div>
+  <h1>명예의 전당</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=시뮬레이션">시뮬레이션</a> <a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	Algorithm Wiki에는 문제마다 해당 문제의 <strong>명예의 전당</strong>이 존재 한다. 이 시스템을 간소화 해 구현해 보도록 하자.
+</p>
+<p>
+	정답 판정을 받은 제출에 대해 우리는 다음의 정보를 얻을 수 있다.
+</p>
+<ul>
+	<li>
+		제출 번호
+	</li>
+	<ul>
+		<li>
+			$i$번째 제출은 제출 번호 $i$를 갖는다.
+		</li>
+		<li>
+			맨 처음 제출의 제출 번호는 $1$이다.
+		</li>
+	</ul>
+	<li>
+		유저 아이디
+	</li>
+	<ul>
+		<li>
+			길이 $1$ 이상 $10$ 이하의 <span style="text-wrap:wrap;">문자열로&#44;&nbsp;</span><span style="text-wrap:wrap;">알파벳 소문자로만 구성된</span>다.
+		</li>
+	</ul>
+	<li>
+		실행 시간
+	</li>
+	<ul>
+		<li>
+			$1$ 이상 $1&#44;000$ 이하의 정수이다.
+		</li>
+	</ul>
+	<li>
+		사용 메모리
+	</li>
+	<ul>
+		<li>
+			$1$ 이상 $1&#44;000$ 이하의 정수이다.
+		</li>
+	</ul>
+	<li>
+		사용 언어
+	</li>
+	<ul>
+		<li>
+			$1$ 이상 $4$ 이하의 정수로 표현된다.
+		</li>
+		<li>
+			출력에선 다음을 따라 치환하여 표현해야 한다.
+		</li>
+	</ul>
+	<ol>
+		<ol>
+			<li>
+				C
+			</li>
+			<li>
+				C++
+			</li>
+			<li>
+				Java
+			</li>
+			<li>
+				Python
+			</li>
+		</ol>
+	</ol>
+	<li>
+		코드 길이
+	</li>
+	<ul>
+		<li>
+			$1$ 이상 $1&#44;000$ 이하의 정수이다.
+		</li>
+	</ul>
+	<li>
+		제출한 시간
+	</li>
+	<ul>
+		<li>
+			$YYYY$-$MM$-$DD$ $hh$:$mm$:$ss$ 의 형식으로 주어진다.
+		</li>
+		<ul>
+			<li>
+				$2024 ≤ YYYY&nbsp;≤ 2025$
+			</li>
+			<li>
+				$01 ≤ MM ≤ 12$<br />
+			</li>
+			<li>
+				$01 ≤ DD ≤ 30$<br />
+			</li>
+			<li>
+				$00 ≤ hh ≤ 23$<br />
+			</li>
+			<li>
+				$00 ≤ mm ≤ 59$<br />
+			</li>
+			<li>
+				<span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;">$00 ≤ ss ≤ 59$<span style="text-wrap:wrap;"><span style="text-wrap:wrap;"></span></span></span></span></span> 
+			</li>
+		</ul>
+		<li>
+			모든 제출 번호의 상대적 우선순위와 같은 우선순위가 보장되며&#44; 중복되지 않는다.
+		</li>
+	</ul>
+</ul>
+<p>
+	명예의 전당은 '속도'&#44; '메모리'&#44; '숏코딩'&#44; '선발대'로&nbsp;<span style="text-wrap:wrap;">총 $4$개의 부문으로 구성된다. 우선 공통으로 적용되는 기준을 보자.</span> 
+</p>
+<ol>
+	<li>
+		부문 당 $1&#44; 2&#44; 3$위가 존재한다.
+	</li>
+	<li>
+		한 사람은 서로 다른 부문에 등재될 수 있다.
+	</li>
+	<li>
+		한 사람은 한 부문의 $1&#44; 2&#44; 3$위 중 한 곳에만 등재될 수 있다.
+	</li>
+	<ul>
+		<li>
+			한 사람이 여러번 제출한 경우&#44; 당연히 부문에 따라 그 중에서 가장 좋은 결과를 가지고 판단한다.
+		</li>
+	</ul>
+</ol>
+<p>
+	이어서 각 부문별로 등재 기준을 보자.
+</p>
+<ul>
+	<li>
+		속도
+	</li>
+	<ol>
+		<li>
+			실행 시간이 작은 순
+		</li>
+		<li>
+			실행 시간이 같다면 제출 번호가 작은 순
+		</li>
+	</ol>
+	<li>
+		메모리
+	</li>
+	<ol>
+		<li>
+			사용 메모리가 작은 순
+		</li>
+		<li>
+			사용 메모리가 같다면 제출 번호가 작은 순
+		</li>
+	</ol>
+	<li>
+		숏코딩
+	</li>
+	<ol>
+		<li>
+			코드 길이가 짧은 순
+		</li>
+		<li>
+			코드 길이가 같다면 제출 번호가 작은 순
+		</li>
+	</ol>
+	<li>
+		선발대
+	</li>
+	<ol>
+		<li>
+			<span style="text-wrap:wrap;">제출 번호가 작은 순</span> 
+		</li>
+	</ol>
+</ul>
+<p>
+	마지막으로 각 부문별 표기 정보를 보자.
+</p>
+<ul>
+	<li>
+		속도
+	</li>
+	<ul>
+		<li>
+			유저 아이디 / 실행 시간 / 사용 언어
+		</li>
+	</ul>
+	<li>
+		메모리
+	</li>
+	<ul>
+		<li>
+			유저 아이디 / 사용 메모리 / 사용 언어
+		</li>
+	</ul>
+	<li>
+		숏코딩
+	</li>
+	<ul>
+		<li>
+			유저 아이디 / 코드 길이 / 사용 언어
+		</li>
+	</ul>
+	<li>
+		선발대
+	</li>
+	<ul>
+		<li>
+			유저 아이디 / 제출한 시간 / 사용 언어
+		</li>
+	</ul>
+</ul>
+위를 토대로 $n$개의 제출 기록이 주어질 때&#44; 각 제출 기록에 따라 변화하는 명예의 전당의 모습을 출력하는 프로그램을 작성하자.
+<p>
+	편의 상 모든 제출은 동일한 문제에 대한 제출이라고 가정하며&#44; 채점 결과 역시 모두 정답 판정을 받았다고 생각하면 된다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 제출 기록의 수를 의미하는 정수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100)$
+</p>
+<p>
+	두번째 줄부터 $n$개의 줄에 걸쳐 $i$번째 제출의 정보가 공백으로 구분되어 주어진다. 주어지는 순서 및 제한은 본문에 나열한 순서와 동일하다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	$1&#44; 2&#44; ... &#44; n$번 제출 기록이 주어졌을 때의 명예의 전당의 모습을 첫째 줄부터 총 $n \times 5$개의 줄에 걸쳐 차례대로 출력한다.
+</p>
+<p>
+	각 출력은 다음을 따른다.
+</p>
+<ul>
+	<li>
+		첫 번째 행 : 속도 부문에 등재된 $1&#44; 2&#44; 3$위의 표기 정보를 공백으로 구분하여 출력한다.
+	</li>
+	<li>
+		두 번째 행 : 메모리&nbsp;<span style="text-wrap:wrap;">부문에 등재된 $1&#44; 2&#44; 3$위의 표기 정보를 공백으로 구분하여 출력한다.</span> 
+	</li>
+	<li>
+		<span style="text-wrap:wrap;">세 번째 행 : 숏코딩 부문에 등재된 $1&#44; 2&#44; 3$위의 표기 정보를 공백으로 구분하여 출력한다.<br />
+</span> 
+	</li>
+	<li>
+		<span style="text-wrap:wrap;">네 번째 행 : 선발대 부문에 등재된&nbsp;<span style="text-wrap:wrap;">$1&#44; 2&#44; 3$위의 표기 정보를 공백으로 구분하여 출력한다.</span></span> 
+	</li>
+	<li>
+		<span style="text-wrap:wrap;">다섯 번째 행 : 개행 문자를 출력한다.</span> 
+	</li>
+</ul>
+<p>
+	각 행에서의 표기 정보는 '{'&#44; '}'로 감싸주어야 하며&#44; 만약 $1$위만 있거나 $1&#44; 2$위만 있는 경우 그들의 정보만 출력해야 한다.
+</p>
+<p>
+	자세한 형식은 예제를 참고하자.
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4
+hun 100 500 4 317 2024-04-09 13:22:22
+pill 80 300 1 520 2024-04-09 13:23:22
+kiwi 80 299 2 555 2024-04-09 14:00:00
+hun 75 800 4 415 2024-04-10 17:13:50
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">{hun/100/Python}
+{hun/500/Python}
+{hun/317/Python}
+{hun/2024-04-09 13:22:22/Python}
+
+{pill/80/C}, {hun/100/Python}
+{pill/300/C}, {hun/500/Python}
+{hun/317/Python}, {pill/520/C}
+{hun/2024-04-09 13:22:22/Python}, {pill/2024-04-09 13:23:22/C}
+
+{pill/80/C}, {kiwi/80/C++}, {hun/100/Python}
+{kiwi/299/C++}, {pill/300/C}, {hun/500/Python}
+{hun/317/Python}, {pill/520/C}, {kiwi/555/C++}
+{hun/2024-04-09 13:22:22/Python}, {pill/2024-04-09 13:23:22/C}, {kiwi/2024-04-09 14:00:00/C++}
+
+{hun/75/Python}, {pill/80/C}, {kiwi/80/C++}
+{kiwi/299/C++}, {pill/300/C}, {hun/500/Python}
+{hun/317/Python}, {pill/520/C}, {kiwi/555/C++}
+{hun/2024-04-09 13:22:22/Python}, {pill/2024-04-09 13:23:22/C}, {kiwi/2024-04-09 14:00:00/C++}
+
+</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

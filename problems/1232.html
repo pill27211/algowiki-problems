@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1232. 트리 위 거리의 합의 합 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1232</div>
+  <h1>트리 위 거리의 합의 합</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 9</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=다이나믹_프로그래밍">다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=트리">트리</a> <a class="chip" href="../index.html?cat=트리_위_다이나믹_프로그래밍">트리 위 다이나믹 프로그래밍</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$1&#44; 2&#44; ... &#44; n$의 번호가 고유하게 매겨진 $n$개의 정점이 트리 구조를 이룬다. 모든 간선의 길이가 $1$로 동일할 때&#44; 다음 값을 구하여라.
+</p>
+<ul>
+	<li>
+		$\sum\limits_{i=1}^n \sum\limits_{j=1}^n d(i&#44; j)$
+	</li>
+	<ul>
+		<li>
+			<span style="text-wrap:wrap;">$d(i&#44; j)$ : $i$번 정점에서 $j$번 정점에 이르는 최단 거리</span> 
+		</li>
+	</ul>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 정점의 개수를 의미하는 정수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $n-1$개의 줄에 걸쳐 간선 하나가 연결하는 두 정점의 번호 $u&#44; v$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ u&#44; v&nbsp;≤ n; u&nbsp;≠ v)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $\sum\limits_{i=1}^n \sum\limits_{j=1}^n d(i&#44; j)$의 값을&nbsp;출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+1 2
+1 3
+2 4
+2 5
+3 6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">64</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">매번 일일이 그래프 탐색을 진행하기엔 당연히 무리가 있다. 두 부분 문제로 쪼개어 풀어보자. <div style="width:100%;height:10px;"></div>
+1. 서브 트리 내에서의 답
+<blockquote>
+구해야 하는 값의 범위를 서브 트리로 줄여보면 어떨까? 즉&#44; 다음을 계산하자는 것이다.
+<pre>
+sub[i] : 정점 i에서 i를 루트로 하는 서브 트리 내 모든 정점으로 향하는 최단 거리의 합.
+</pre>
+위를 계산하기 위해선 서브 트리의 크기 조사가 절대적으로 필요하다.
+<pre>
+sz[i] : 정점 i를 루트로 하는 서브 트리의 크기
+</pre>
+트리 구조임을 생각하면&#44; 정점 $now$와 $now$의 자식 $nxt1&#44; nxt2&#44; nxt3&#44; ...$에 대해 다음의 관계식이 성립한다.
+<pre>
+sub[now] = (sub[nxt1] + sz[nxt1]) + (sub[nxt2] + sz[nxt2]) + (sub[nxt3] + sz[nxt3]) + ...
+</pre>
+</blockquote>
+2. 그 외 모든 정점으로의 답
+<blockquote>
+각 정점마다 서브 트리 단에서의 답은 모두 계산하였다. 이제 정점마다 해당 정점의 서브 트리 외에 다른 모든 정점으로의 답을 계산해야 한다.<br>
+이는 앞서 전처리 한 $sub&#44; sz$를 잘 활용하여 재귀적인 관계식을 정리할 수 있다. 다음을 참고하자.
+<pre>
+ans[i] : 정점 i에서 다른 모든 정점으로 향하는 최단 거리의 합
+
+dfs(now&#44; val)                   ← 현재 정점&#44; 루트로부터 이어져 오는 누적값
+{
+    ans[i] = sub[i] + val       ← 우선 서브 트리 내에서의 답과 누적값을 취한다.
+    for nxt                     ← now의 자식 노드 순회
+        op1 = n - sz[nxt]
+        op2 = sub[now] - sub[nxt] - sz[nxt]
+        dfs(nxt&#44; val + op1 + op2)
+}
+
+op1 : now와 nxt를 잇는 간선이 이용되는 횟수
+op2 : now에서 nxt가 아닌 다른 자식 노드로 향하는 최단 거리의 합
+</blockquote></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

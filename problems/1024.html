@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1024. 스택 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1024</div>
+  <h1>스택</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=스택">스택</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	아래의 쿼리를 처리하는 스택을 구현해 보자.
+</p>
+<p>
+	사용 언어의 라이브러리 상에 스택이 존재한다면 비교적 쉽게 해결할 수 있을 테지만&#44; 한 번쯤 직접 구현해 보는 것도 좋은 경험이 된다.
+</p>
+<ul>
+	<li>
+		$push$ $x$ : 스택에 정수 $x$를 삽입한다. $(1&nbsp;≤ x&nbsp;≤ 1&#44;000)$
+	</li>
+	<li>
+		$top$ : 스택에서 가장 위에 있는 정수를 출력한다. 만약 스택이 비어 있다면&#44; $-1$을 출력한다.
+	</li>
+	<li>
+		$pop$ : 스택에서 가장 위에 있는 정수를 제거한다. 만약 스택이 비어 있다면&#44; 아무것도 수행하지 않는다.
+	</li>
+	<li>
+		$size$ : 스택에 들어있는 정수의 개수를 출력한다.
+	</li>
+	<li>
+		$empty$ : 스택이 비어 있다면 $1$을&#44; 비어 있지 않다면 $0$을 출력한다.
+	</li>
+</ul>
+<p>
+	<img src="../assets/upload/algowiki.co.kr/image/20240313/20240313221707_78324.gif" alt="" /
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 쿼리의 개수 $Q$가 주어진다. $(1 ≤ Q ≤ 50&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $Q$개의 줄에 걸쳐 임의의 쿼리가 주어진다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">출력을 요구하는 쿼리가 주어질 때마다&#44; 그에 맞는 답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">10
+push 1
+push 2
+top
+push 3
+size
+empty
+pop
+pop
+top
+pop
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2
+3
+0
+1</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

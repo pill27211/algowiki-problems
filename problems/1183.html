@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1183. 무향 그래프의 단절점 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1183</div>
+  <h1>무향 그래프의 단절점</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 9</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=단절점과_단절선">단절점과 단절선</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p style="text-wrap:wrap;">
+	$N$개의 정점과 $M$개의 간선으로 이루어진 무항 그래프 $G$가 주어진다. $G$의 단절점(Articulation Point)을 모두 구하여라.
+</p>
+<p style="text-wrap:wrap;">
+	<span style="text-wrap:wrap;">$G$의&nbsp;</span>어떤 정점 $v$가 단절점이라 함은&#44; 다음을 만족함과 동치이다.
+</p>
+<ul>
+	<li>
+		정점 $v$ 및 $v$와 직접적으로 연결된 간선을 모두 제거하면 $G$가 두 컴포넌트 이상으로 분할된다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 정점의 개수 $N$과 간선의 개수 $M$이 공백으로 구분되어 주어진다. $(2&nbsp;≤ N&nbsp;≤ 50&#44;000; N-1 ≤ M&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $M$개의 줄에 걸쳐 간선 하나가 연결하는 두 정점의 번호 $u&#44; v$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ u&#44; v&nbsp;≤ N; u&nbsp;≠ v)$
+</p>
+<p>
+	각 정점에는 $1&#44; 2&#44; ... &#44; N$의 번호가 고유하게 할당되며&#44; $G$는 연결 그래프이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	첫째 줄에 $G$의 단절점의 개수를 출력한다.
+</p>
+<p>
+	둘째 줄에 $G$의 단절점들을 비내림차순으로 정렬 후 공백으로 구분하여 출력한다.
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8 9
+1 2
+1 3
+2 3
+3 4
+2 6
+3 6
+2 5
+6 7
+7 8
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4
+2 3 6 7</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

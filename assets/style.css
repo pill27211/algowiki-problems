@@ -1,0 +1,144 @@
+/* ===== AlgoWiki Problem Archive — modern theme ===== */
+:root{
+  --bg:#fbfbfd; --bg2:#f2f3f7; --card:#ffffff; --fg:#0e1116; --fg2:#3a414c;
+  --mut:#727c8a; --line:#e9ebf1; --line2:#dfe2ea;
+  --acc:#5b63f5; --acc-fg:#5b63f5; --acc-soft:#eef0ff; --acc-soft-b:#e0e3ff;
+  --code:#f4f5f9; --shadow:0 1px 2px rgba(16,20,40,.04),0 8px 24px -12px rgba(16,20,40,.14);
+  --shadow-hi:0 2px 6px rgba(16,20,40,.06),0 18px 40px -16px rgba(70,80,200,.30);
+  --radius:16px; --radius-sm:11px;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0a0c10; --bg2:#111419; --card:#14181f; --fg:#eef1f6; --fg2:#c2c8d2;
+    --mut:#8b93a1; --line:#222834; --line2:#2b323f;
+    --acc:#8a90ff; --acc-fg:#a7abff; --acc-soft:#191d2e; --acc-soft-b:#2a3050;
+    --code:#0f131a; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px -14px rgba(0,0,0,.7);
+    --shadow-hi:0 2px 8px rgba(0,0,0,.5),0 22px 50px -18px rgba(60,70,200,.5);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);line-height:1.7;
+  font-family:"Pretendard",system-ui,-apple-system,"Segoe UI",Roboto,"Malgun Gothic","Apple SD Gothic Neo",sans-serif;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--acc-fg);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:880px;margin:0 auto;padding:28px 22px 72px}
+::selection{background:var(--acc-soft-b)}
+
+/* ---------- hero (dark, refined) ---------- */
+.hero{position:relative;overflow:hidden;padding:82px 22px 64px;text-align:center;background:#090a0f;color:#fff}
+.hero::before{content:"";position:absolute;left:50%;top:-32%;width:920px;height:620px;transform:translateX(-50%);
+  background:radial-gradient(45% 50% at 50% 50%,rgba(110,96,255,.42),rgba(75,141,255,.10) 55%,transparent 72%);
+  filter:blur(6px);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(72% 68% at 50% 16%,#000 28%,transparent 76%);
+          mask-image:radial-gradient(72% 68% at 50% 16%,#000 28%,transparent 76%);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero h1{margin:0 0 14px;font-size:46px;font-weight:800;letter-spacing:-1.6px;
+  background:linear-gradient(180deg,#ffffff 28%,#b7bbd0);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent}
+.hero h1 span{-webkit-text-fill-color:initial;color:#8b93ff;font-weight:600}
+.hero .lead{max-width:600px;margin:0 auto;font-size:15px;line-height:1.75;color:#9ba1b4}
+.hero .lead b{color:#e7e9f2;font-weight:600}
+.hero .stats{display:flex;gap:12px;justify-content:center;margin-top:32px;flex-wrap:wrap}
+.hero .stat{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;padding:14px 28px;min-width:128px}
+.hero .stat b{display:block;font-size:29px;font-weight:800;letter-spacing:-.5px;line-height:1.1;color:#fff}
+.hero .stat span{font-size:12px;color:#8b91a4;letter-spacing:.2px}
+
+/* ---------- controls ---------- */
+.controls{position:sticky;top:0;z-index:10;display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+  padding:16px 0;margin-bottom:4px;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.controls input,.controls select,.toggle-btn{height:42px;padding:0 14px;border:1px solid var(--line2);
+  border-radius:12px;background:var(--card);color:var(--fg);font-size:14px;font-family:inherit;
+  transition:border-color .15s,box-shadow .15s,background .15s,color .15s;box-shadow:var(--shadow)}
+.controls input{flex:1;min-width:200px}
+.controls select{cursor:pointer;max-width:180px}
+.controls input:focus,.controls select:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-soft)}
+.toggle-btn{cursor:pointer;font-weight:600;font-size:13px;color:var(--mut)}
+.toggle-btn:hover{border-color:var(--acc-soft-b)}
+.toggle-btn.on{background:var(--acc-soft);color:var(--acc-fg);border-color:var(--acc-soft-b)}
+.count{color:var(--mut);font-size:13px;margin-left:auto;font-variant-numeric:tabular-nums}
+
+/* ---------- problem list ---------- */
+.plist{margin-top:14px;display:flex;flex-direction:column;gap:9px}
+.prow{position:relative;display:flex;align-items:center;gap:14px;padding:13px 16px;
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius-sm);
+  box-shadow:var(--shadow);transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease}
+.prow:hover{transform:translateY(-2px);border-color:var(--acc-soft-b);box-shadow:var(--shadow-hi)}
+.prow::before{content:"";position:absolute;left:0;top:12px;bottom:12px;width:3px;border-radius:3px;
+  background:var(--acc);opacity:0;transition:opacity .16s}
+.prow:hover::before{opacity:1}
+.prow .num{font-variant-numeric:tabular-nums;color:var(--mut);font-size:12.5px;min-width:48px;font-weight:500}
+.prow .t{flex:1;font-weight:650;font-size:15px;letter-spacing:-.2px}
+.prow .t a{color:var(--fg)}.prow .t a:hover{color:var(--acc-fg);text-decoration:none}
+.prow .rtags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:44%}
+
+/* spoiler-hide on the list (default): difficulty chip + type tags */
+.prow .dchip{display:none}
+.prow .rtags{display:none}
+body.show-meta .prow .dchip{display:inline-block}
+body.show-meta .prow .rtags{display:flex}
+
+.dchip{flex:none;min-width:30px;text-align:center;font-size:11.5px;font-weight:800;color:#fff;
+  border-radius:8px;padding:5px 8px;font-variant-numeric:tabular-nums;box-shadow:inset 0 -1px 1px rgba(0,0,0,.18)}
+.chip{font-size:11.5px;background:var(--acc-soft);color:var(--acc-fg);border:1px solid transparent;
+  padding:4px 10px;border-radius:999px;white-space:nowrap;transition:.14s}
+a.chip:hover{text-decoration:none;border-color:var(--acc-soft-b)}
+.badge{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;background:var(--code);
+  border:1px solid var(--line);color:var(--fg2);padding:5px 11px;border-radius:9px;font-variant-numeric:tabular-nums}
+.badge.diff{background:var(--acc-soft);color:var(--acc-fg);border-color:var(--acc-soft-b);font-weight:700}
+
+/* ---------- topbar / problem head ---------- */
+.topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;
+  padding:14px 22px;background:color-mix(in srgb,var(--bg) 82%,transparent);
+  backdrop-filter:saturate(180%) blur(12px);border-bottom:1px solid var(--line)}
+.topbar .brand{font-weight:800;letter-spacing:.6px;color:var(--mut);font-size:14px}
+.back{font-weight:600;font-size:14px}
+.phead{padding:6px 0 20px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.phead .pid{color:var(--acc-fg);font-weight:800;font-size:13px;letter-spacing:.4px}
+.phead h1{margin:6px 0 14px;font-size:29px;font-weight:800;letter-spacing:-.6px;line-height:1.25}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:14px}
+.spoiler-btn{font:inherit;font-size:13px;font-weight:600;cursor:pointer;background:var(--acc-soft);
+  color:var(--acc-fg);border:1px solid var(--acc-soft-b);border-radius:10px;padding:9px 15px;transition:.14s}
+.spoiler-btn:hover{background:var(--acc-soft-b)}
+
+/* spoiler-hide on problem page (default): difficulty, type tags, hint */
+.badge.diff{display:none}
+.phead .tags{display:none}
+.sec.hintsec,.itemhint{display:none}
+body.spoiled .badge.diff{display:inline-flex}
+body.spoiled .phead .tags{display:flex}
+body.spoiled .sec.hintsec,body.spoiled .itemhint{display:block}
+
+/* ---------- sections ---------- */
+.sec{padding:24px 0;border-bottom:1px solid var(--line)}
+.sec:last-of-type{border-bottom:0}
+.sec h2{font-size:13px;margin:0 0 12px;color:var(--mut);font-weight:700;text-transform:uppercase;letter-spacing:.8px}
+.sec .body{font-size:15.5px;color:var(--fg);overflow-wrap:break-word}
+.sec .body p{margin:0 0 12px}
+.sec .body img{max-width:100%;height:auto;border-radius:10px;border:1px solid var(--line);margin:6px 0}
+.sec .body pre,pre.io{background:var(--code);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;overflow-x:auto;font-size:13.5px;line-height:1.55;
+  font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre.io{white-space:pre-wrap;word-break:break-word;font-size:14px}
+.io-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.io-h{font-size:12px;color:var(--mut);font-weight:700;margin-bottom:7px;text-transform:uppercase;letter-spacing:.5px}
+.itemhint{border:1px solid var(--acc-soft-b);background:linear-gradient(180deg,var(--acc-soft),transparent 90%);
+  border-radius:14px;padding:18px 20px}
+.itemhint h2{color:var(--acc-fg)}
+.itemhint .note{font-size:12.5px;color:var(--mut);margin-bottom:12px;padding-bottom:12px;border-bottom:1px dashed var(--acc-soft-b)}
+.foot{text-align:center;color:var(--mut);font-size:12.5px;padding:34px 22px 56px}
+
+@media(max-width:640px){
+  .hero{padding:60px 20px 46px}.hero h1{font-size:32px}
+  .io-grid{grid-template-columns:1fr}
+  body.show-meta .prow .rtags{display:none}
+  .controls select,.toggle-btn{flex:1;max-width:none}
+  .phead h1{font-size:24px}
+}

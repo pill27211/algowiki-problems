@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1021. $a^b$ · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1021</div>
+  <h1>$a^b$</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 5</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=분할_정복">분할 정복</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">두 정수 $a&#44; b$가 주어졌을 때&#44; $a^b$의 값을 구해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $a&#44; b$가 공백으로 구분되어 주어진다. $(1 ≤ a&#44; b ≤ 10^9)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $a^b$의 값을 출력한다. 단&#44; 수가 너무 커질 수 있으니 $10^9 + 7$로 나눈 나머지를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">2 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1024</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	<p style="text-wrap:wrap;">
+		$a^b$에 대해&#44; 우리는 다음이 성립함을 알고 있다.
+	</p>
+	<ul style="text-wrap:wrap;">
+		<li>
+			$b$가 홀수 : $a^{⌊\frac{b}{2}⌋} \times a^{⌊\frac{b}{2}⌋} \times a$
+		</li>
+		<li>
+			$b$가 짝수 : $a^{⌊\frac{b}{2}⌋} \times a^{⌊\frac{b}{2}⌋}$
+		</li>
+	</ul>
+<span style="text-wrap:wrap;">이 성질을 이용해 $b$를 반씩 줄여나가면&#44; 결국 $O(logb)$에 $a^b$의 값을 계산할 수 있다.</span>
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

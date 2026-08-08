@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1155. 식별 태그 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1155</div>
+  <h1>식별 태그</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 3.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=유클리드_호제법">유클리드 호제법</a> <a class="chip" href="../index.html?cat=포함_배제의_원리">포함 배제의 원리</a> <a class="chip" href="../index.html?cat=비트마스킹">비트마스킹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$1&#44; 2&#44; ... &#44; n$의 고유한 번호를 갖는 $n$명의 사람이 있다. 이들 중 아래를 만족하는 사람들을 위한 식별 태그를 정확히 <strong>필요한 만큼</strong> 제작하려고 한다. 몇 개의 식별 태그를 제작해야 할까?
+</p>
+<p>
+	<ul>
+		<li>
+			어떤 사람의 번호를 $i$라고 할 때&#44; $i$는 $p_1&#44; p_2&#44; ... &#44; p_m$ 중 어느 수도 약수로 갖지 않는다.
+		</li>
+	</ul>
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 사람의 수 $n$과 $p$의 크기 $m$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 10^{15}; 1&nbsp;≤ m&nbsp;≤ 20)$
+</p>
+<p>
+	둘째 줄에 $p_1&#44; p_2&#44; ... &#44; p_m$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ p_i ≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 제작해야 하는&nbsp;<span style="text-wrap:wrap;">식별 태그의 수를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">100 3
+2 3 4
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">33</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1027. 소수 판정 (Small) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1027</div>
+  <h1>소수 판정 (Small)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=소수_판정">소수 판정</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	양의 정수 $x$가 주어진다. $x$가 소수인지 판별해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	<span style="color:rgba(0&#44; 0&#44; 0&#44; 0.87);font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">첫째 줄에 테스트 케이스의 수를 의미하는 $T$가 주어진다. $(1&nbsp;≤ T ≤ 1&#44;000)$</span>
+</p>
+<p>
+	<span style="color:rgba(0&#44; 0&#44; 0&#44; 0.87);font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄부터 $T$개의 줄에 걸쳐 $x$가 주어진다. $(1 ≤ x ≤ 1&#44;000)$</span>
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 테스트 케이스마다 $x$가 소수라면 YES&#44; 소수가 아니라면 NO를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4
+2
+4
+7
+10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">YES
+NO
+YES
+NO</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$1$보다 큰 정수 $x$가 $1$과 자기 자신 이외에 약수를 갖지 않는다면 $x$는 소수이다. $x$가 주어질 때마다 $x$가 소수의 정의를 만족하는지 검사하자.
+<pre>
+isPrime(n)
+    if n == 1
+        return false
+    for i    ← 1 to (n / 2) // i가 n의 절반을 넘어가면 이후는 볼 필요가 없다.
+        if n % i == 0
+            return false
+    return true
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

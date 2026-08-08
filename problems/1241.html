@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1241. $3$차원 더하기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1241</div>
+  <h1>$3$차원 더하기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=imos법">imos법</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p style="text-align:left;">
+	<span style="text-wrap:wrap;">$N \times M$개의 칸으로 이루어진 직사각형 $H$개가 아래에서 위로 균일하게 쌓여있다. 맨 아래에 있는 직사각형의 높이는 $1$이고 맨 위에 있는 직사각형의 높이는 $H$가 된다. 또한 한 직사각형을 놓고 볼 때 맨 왼쪽 위의 좌표는 $(1&#44; 1)$&#44; 맨 오른쪽 아래 좌표는 $(N&#44; M)$이 된다.</span> 
+</p>
+<p style="text-align:left;">
+	따라서 각 칸은 $(1&#44; 1&#44; 1)$ 부터 $(H&#44; N&#44; M)$까지의 고유한 좌표를 갖는다. 최초 각 칸은 $0$의 값을 갖는다.<span style="text-wrap:wrap;"> </span> 
+</p>
+<p style="text-wrap:wrap;">
+	다음 쿼리를 수행하는 프로그램을 작성하자.
+</p>
+<ul style="text-wrap:wrap;">
+	<li>
+		$h_1$ $h_2$ $y_1$ $y_2$ $x_1$ $x_2$ $k$ : 아래 조건을 만족하는 모든&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$(h&#44; y&#44; x)$의 값에 $k$를 더한다.</span> 
+	</li>
+	<ul>
+		<li>
+			$h_1 ≤ h ≤ h_2$<span style="color:#202124;font-family:&quot;font-size:20px;background-color:#FFFFFF;"></span> 
+		</li>
+		<li>
+			$y_1 ≤ y ≤ y_2$<br />
+		</li>
+		<li>
+			$x_1 ≤ x ≤ x_2$
+		</li>
+	</ul>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p style="text-wrap:wrap;">
+	첫째 줄에 $N&#44; M&#44; H$와 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ N&#44; M&#44; H ≤ 50; 1 ≤ Q ≤ 2 \times 10^5)$
+</p>
+<p style="text-wrap:wrap;">
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄부터 $Q$개의 줄에 걸쳐&nbsp;$h_1$ $h_2$ $y_1$ $y_2$ $x_1$ $x_2$ $k$가 공백으로 구분되어 주어진다.</span> 
+</p>
+<ul style="text-wrap:wrap;">
+	<li>
+		$1 ≤ h_1 ≤ h_2 ≤ H$<br />
+	</li>
+	<li>
+		$1 ≤ y_1 ≤ y_2 ≤ N$<br />
+	</li>
+	<li>
+		$1 ≤ x_1 ≤ x_2 ≤ M$<br />
+	</li>
+	<li>
+		$1 ≤ k ≤ 1&#44;000$<br />
+	</li>
+</ul>
+<span style="text-wrap:wrap;color:#202124;font-family:&quot;font-size:20px;background-color:#FFFFFF;">입력으로 주어지는 모든 수는 정수이다.</span></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	<span style="text-wrap:wrap;">$Q$개의 쿼리에 대한 처리가 끝난 후&#44; $H \times (N + 1)$개의 줄에 걸쳐 최종 직사각형들의 모습을 출력한다. 직사각형들은 아래에서 위로 쌓여있기 때문에&#44; 높이가 $H&#44; H-1&#44; ... &#44; 1$인 직사각형의 모습을 차례대로 출력해야 한다.</span> 
+</p>
+<p>
+	<span style="text-wrap:wrap;">각 직사각형은 다음의 출력 형식을 따라야 한다.</span>
+</p>
+<ul>
+	<li>
+		<span style="text-wrap:wrap;">$N+1$개의 줄에 걸쳐 출력된다.</span> 
+	</li>
+	<ul>
+		<li>
+			<span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;">$1 ≤ i ≤ N$인&nbsp;</span></span>$i$번째 줄에는 해당 직사각형의 $(i&#44; 1)&#44; (i&#44; 2)&#44; ... &#44; (i&#44; M)$을 공백으로 구분해 출력한다.</span> 
+		</li>
+		<li>
+			<span style="text-wrap:wrap;">$N+1$번째 줄은 개행('\n')해야 한다.</span>
+		</li>
+	</ul>
+</ul></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4 3 3 3
+1 2 2 4 1 2 1
+2 3 2 3 2 3 1
+1 3 1 4 1 3 2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2 2 2
+3 3 2
+3 3 2
+3 3 2
+
+2 2 2
+3 4 3
+3 4 3
+3 3 2
+
+2 2 2
+2 3 3
+2 3 3
+2 2 2
+
+</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

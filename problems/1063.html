@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1063. 문자열 매칭 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1063</div>
+  <h1>문자열 매칭</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=문자열">문자열</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">알파벳 소문자로만 이루어진 문자열 $S$와 $T$가 주어진다. $S$에 $T$가 존재하는지 확인해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $S$&#44;&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄에 $T$가 주어진다. <span style="text-wrap:wrap;"><span style="text-wrap:wrap;">$(1 ≤ |T| ≤ |S| ≤ 1&#44;000)$</span></span></span><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"></span> 
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 <span style="text-wrap:wrap;">$S$에 $T$가 존재한다면 YES&#44; 존재하지 않는다면 NO를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">algowiki
+wiki
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">YES</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">가장 나이브하게 접근해 보도록 하자.<br />
+이는 당연히 $S$의 모든 인덱스에서부터 $|T|$만큼의 부분 문자열을 보며 비교해 보는 방법일 것이다. 시간 복잡도는 $O(|S| \times |T|)$.<br />
+문제의 제한이 $1 ≤ |T| ≤ |S| ≤ 1&#44;000$를 만족 하므로&#44; 최악의 경우라도 제한 시간 내에 충분히 동작할 수 있다.<br />
+<br />
+만약 제한이 훨씬 크다면 어떻게 풀어야 할까?<br />
+결론부터 말하자면 KMP로 불리는 알고리즘을 사용해 $O(|S| + |T|)$라는 어마무시한 시간 복잡도로 문제를 해결할 수 있다.<br />
+궁금하다면 해당 알고리즘을 공부해 보는 것도 좋다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

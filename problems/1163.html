@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1163. 구간 소인수분해와 구간 쿼리 (Large) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1163</div>
+  <h1>구간 소인수분해와 구간 쿼리 (Large)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a> <a class="chip" href="../index.html?cat=소수_판정">소수 판정</a> <a class="chip" href="../index.html?cat=에라토스테네스의_체">에라토스테네스의 체</a> <a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	양의 정수 $N$에 대해&#44; 아래와 같은 쿼리 $Q$개를 처리하는 프로그램을 작성하여라.
+</p>
+<ul>
+	<li>
+		$l$ $r$ : 폐구간 $[l&#44; r]$ 에 속하는 정수 $i$에 대해 $p_i$를 $i$의 소인수의 개수라고 할 때&#44; $\sum\limits_{i=l}^r p_i$ 의 값을 출력한다.
+	</li>
+</ul>
+<p>
+	정수 $i$가 소수의 제곱 꼴의 곱으로 표현되는 경우&#44; 각각을 별개로 본다. 예를 들어 $72$의 경우 $2^3 \times 3^2$로 표현할 수 있을 것이다. 그러나 각각을 별개로 봐야 하므로 $2 \times 2 \times 2 \times 3 \times 3$ 에서 $p_{72} = 5$가 된다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 $N$과 $Q$가 공백으로 구분되어 주어진다.&nbsp;$(2 ≤ N ≤ 3 \times 10^6; 1 ≤ Q ≤ 2 \times 10^5)$
+</p>
+<p>
+	둘째 줄부터 $Q$개의 줄에 걸쳐 $l&#44; r$이 공백으로 구분되어 주어진다. $(2 ≤ l ≤ r ≤ N)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">쿼리가 주어질 때마다 그에 맞는 답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">10 4
+2 4
+5 7
+8 10
+2 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4
+4
+7
+15</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

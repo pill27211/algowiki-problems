@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1015. 진수의 최종 보스 공략 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1015</div>
+  <h1>진수의 최종 보스 공략</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	<a class="ke-insertfile" href="problem.php?id=1004" target="_blank">여기</a>서 우리는 진수가 게임을 시작할 수 있도록 완벽한 닉네임을 찾아주었다. 어느덧 고인물이 된 진수는&#44; 최종 보스 공략을 목전에 두고 있다.
+</p>
+<p>
+	최종 보스를 공략하기 위해서는 다음의 규칙을 따라야 한다.
+</p>
+<ul>
+	<li>
+		<span style="text-wrap:wrap;">$N$개의 페이즈는 반드시&nbsp;</span><strong style="text-wrap:wrap;">순서대로</strong><span style="text-wrap:wrap;">&nbsp;공략되어야 한다.</span> 
+	</li>
+	<li>
+		$i$번째 페이즈를 공략하기 위해서는 최소 $p_i$의 공격력을 가진 무기가 필요하다.
+	</li>
+	<li>
+		$i$번째 페이즈를 공략했다면&#44; 지금 들고 있는 무기의 공격력이 $p_i$가 된다.
+	</li>
+	<li>
+		지금 들고 있는 무기로 현재 페이즈 공략이 불가능하다면&#44; 이를 버리고 가방에서 새로운 무기를 꺼내어 임의의 공격력을 부여할 수 있다.
+	</li>
+	<li>
+		첫 번째 페이즈에서는 당연히 새 무기를 꺼내들어 임의의 공격력을 부여한다.
+	</li>
+</ul>
+<p>
+	진수는 수많은 시행착오를 거쳐 수열 $p_1&#44; p_2&#44; ... p_N$을 모두 계산해내었다.
+</p>
+<p>
+	그러나 이 과정에서 갖고 있는 무기를 모두 사용해버린 진수는&#44; 우리에게 수열 $p_1&#44; p_2&#44; ... &#44; p_N$을 주며 던전을 클리어하기 위해 필요한 <strong>최소한의 무기</strong>를 보내 달라고 했다. 진수에게 보낼 최소한의 무기 개수를 계산해보자!
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 페이즈의 수를 의미하는 정수 $N$이 주어진다.$(1 ≤ N ≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄에 $p_1&#44; p_2&#44; ... &#44; p_N$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ p_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 진수에게 보내게 될 최소한의 무기 개수를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5
+4 5 3 1 6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">3
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	두 번째&#44; 세 번째 규칙을 보자. 어떤 연속 부분 페이즈 $p_1&#44; p_2&#44; ... &#44; p_i$에 대해 $p_1 &gt; p_2 &gt; ... &gt; p_i$가 만족 된다면 이 페이즈들은 하나의 무기로 전부 공략할 수 있다.
+</p>
+<p>
+	이에 따라 부등호의 방향이 역전되는 시점의 개수는 곧 새 무기가 필요한 시점의 개수와 같다.
+</p>
+<p>
+	이는 한 번의 순회로 모두 계산해낼 수 있으므로 $O(N)$에 문제를 해결할 수 있다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

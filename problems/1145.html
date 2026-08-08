@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1145. 멀고도 험한 리프 노드로의 길 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1145</div>
+  <h1>멀고도 험한 리프 노드로의 길</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=다이나믹_프로그래밍">다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=트리">트리</a> <a class="chip" href="../index.html?cat=트리_위_다이나믹_프로그래밍">트리 위 다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$개의 정점으로 이루어진 트리가 주어진다. $1&#44; 2&#44; ... &#44; n$번 정점으로부터 가장 가까운 리프 노드로의 거리를 구해보자.
+</p>
+<p>
+	답을 계산함에 있어서 다음에 유의해야 한다.
+</p>
+<ul>
+	<li>
+		리프 노드로의 길은 멀고도 험하기 때문에&#44; 반드시 최단 거리로 이동해야 하며 가능한 가장 가까운 리프 노드여야 한다.
+	</li>
+	<li>
+		어떤 정점에 대한 답을 계산할 땐&#44; 반드시 그 정점을 루트로 하는 서브 트리에 존재하는 리프 노드만을 고려해야 한다.
+	</li>
+	<li>
+		트리의 루트는 $1$번 정점이다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 트리를 구성하는 노드의 개수 $n$이 주어진다.&nbsp;$(1 ≤ n ≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $n-1$개의 줄에 걸쳐&nbsp;$u&#44; v&#44; w$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ u&#44; v ≤ n; u ≠ v ; 1 ≤ w ≤ 10&#44;000)$ 이는 정점 $u&#44; v$를 잇는 간선의 길이가 $w$라는 뜻이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	<span style="text-wrap:wrap;">첫째 줄에 $1&#44; 2&#44; ... &#44; n$번 정점으로부터 가장 가까운 리프 노드로의 거리를 공백으로 구분하여 출력한다.</span>
+</p>
+<p>
+	<span style="text-wrap:wrap;">어떤 정점이 리프 노드라면&#44; 그 정점으로부터 가장 가까운 리프 노드로의 거리는 $0$이다.</span>
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+1 2 1
+1 3 2
+2 4 3
+2 5 4
+3 6 5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4 3 5 0 0 0</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

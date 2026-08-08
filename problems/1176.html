@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1176. 배낭 문제 1 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1176</div>
+  <h1>배낭 문제 1</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 6</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=다이나믹_프로그래밍">다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=배낭_문제">배낭 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	최대 $S$의 무게를 담을 수 있는 배낭과 $N$개의 물건이 있다. $i$번째 물건은 무게 $w_i$&#44; 가치 $v_i$를 갖는다. 각 물건은 최대 한 번만 담을 수 있으며&#44; 무게 $S$를 넘지 않는 선에서 자유롭게 물건을 담을 수 있다.
+</p>
+<p>
+	이때&#44; 담는 물건들의 가치 합의 최댓값을 구하여라.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 물건의 개수 $N$과 배낭에 담을 수 있는 최대 무게 $S$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ N ≤ 100; 1 ≤ S ≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $N$개의 줄에 걸쳐 각 물건의 $w&#44; v$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ w&#44; v&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	입력으로 주어지는 수는 모두 정수이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 문제의 정답을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 10
+1 2
+4 4
+5 3
+3 3
+2 1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">10</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">입력으로 주어지는 물건의 순서에서 $1&#44; 2&#44; 4&#44; 5$번째 물건을 담으면 총 $10$의 가치를 낼 수 있으며&#44; 이보다 높은 가치를 내도록 담는 방법은 존재하지 않는다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

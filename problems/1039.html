@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1039. 순열 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1039</div>
+  <h1>순열</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=조합론">조합론</a> <a class="chip" href="../index.html?cat=브루트포스_알고리즘">브루트포스 알고리즘</a> <a class="chip" href="../index.html?cat=백트래킹">백트래킹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">양의 정수 $N$이 주어진다. $1&#44; 2&#44; ... &#44; N$ 으로 구성할 수 있는 모든 순열을 구해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">양의 정수 $N$이 주어진다. $(1&nbsp;≤ N ≤ 8)$</span></div></section>
+<section class="sec"><h2>출력</h2><div class="body"><p>
+	가능한 모든 순열을 사전순으로 한 줄에 하나씩 출력한다.
+</p>
+<p>
+	임의의 순열을 출력할 땐 각 요소가 공백으로 구분되어야 한다.
+</p></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 3
+1 3 2
+2 1 3
+2 3 1
+3 1 2
+3 2 1</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">문제 해결에 어려움이 있다면 백트래킹 위키를 참고하자.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

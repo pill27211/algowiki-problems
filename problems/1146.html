@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1146. 못해도 평균은 돼야지 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1146</div>
+  <h1>못해도 평균은 돼야지</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$명의 학생이 받은 점수가 주어진다. 이들의 점수 평균을 구하고&#44; 평균을 넘지 못한 사람&#44; 평균인 사람&#44; 평균을 넘은 사람의 수를 모두 구해보자.
+</p>
+<p>
+	점수 평균은 다음으로 정의한다.
+</p>
+<ul>
+	<li>
+		$n$명의 학생이 받은 점수 $p_1&#44; p_2&#44; ... &#44; p_n$에 대해&#44;&nbsp;$⌈\frac{\sum\limits_{i=1}^n p_i}{n}⌉$
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 테스트 케이스의 수 $T$가 주어진다.&nbsp;$(1 ≤ T ≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $T$개의 테스트 케이스가 주어진다. 각 테스트 케이스에서는 먼저 학생의 수를 의미하는 $n$이 주어지고&#44; 그 다음 줄에 $p_1&#44; p_2&#44; ... &#44; p_n$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ n&#44; p_i ≤ 100)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 테스트 케이스마다 점수 평균&#44;&nbsp;<span style="text-wrap:wrap;">평균을 넘지 못한 사람&#44; 평균인 사람&#44; 평균을 넘은 사람의 수를 공백으로 구분하여 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+5
+1 2 3 4 5
+3
+3 3 3
+2
+2 4
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">3 2 1 2
+3 0 3 0
+3 1 0 1</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">테스트 케이스마다 학생들의 점수의 총 합을 구하자. 나아가 그 합을 다시 학생의 수로 나누어 점수 평균을 구하자. 이때, 그 값이 정수가 아닐 경우 $ceil($올림$)$ 처리 해야 함을 유의해야 한다.<br>
+이제 평균을 넘지 못한 사람, 평균인 사람, 평균을 넘은 사람의 수를 기록할 변수 $3$개를 두어 문제를 해결할 수 있다.
+<pre>
+cnt1, cnt2, cnt3
+for i    ← 1 to n
+    if score[i] < avg
+        cnt1++
+    elif score[i] == avg
+        cnt2++
+    else
+        cnt3++
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

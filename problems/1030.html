@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1030. 집합과 쿼리 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1030</div>
+  <h1>집합과 쿼리 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=정렬">정렬</a> <a class="chip" href="../index.html?cat=이분_탐색">이분 탐색</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	원소가 모두 양의 정수인 집합 $U$ $=$ {$e_1&#44; e_2&#44; ... &#44; e_N$} 가 주어진다.
+</p>
+<p>
+	아래 쿼리를 수행하는 프로그램을 작성해보자.
+</p>
+<ul>
+	<li>
+		$k$ : 집합 $U$에 정수 $k$가 속해 있다면 $1$&#44; 속해있지 않다면 $0$을 출력한다.&nbsp;<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$(1&nbsp;≤ k ≤ 10^9)$</span>
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 집합의 크기 $N$과 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다. <span style="text-wrap:wrap;">$(1&nbsp;≤ N&#44; Q ≤ 200&#44;000)$</span><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"></span></span> 
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄에 $e_1&#44; e_2&#44; ... &#44; e_N$이 공백으로 구분되어 주어진다. <span style="text-wrap:wrap;">$(1&nbsp;≤ e_i ≤ 10^9)$</span><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"></span></span></span> 
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">셋째 줄부터 $Q$개의 줄에 걸쳐 쿼리가 주어진다.</span></span>
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 쿼리가 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 3
+1 2 3 4 5
+3
+7
+1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+0
+1</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	집합의 크기와 쿼리의 개수가 최대 $200&#44;000$까지 될 수 있다. 이에 따라 쿼리 당 약 $O(logN)$ 수준으로 응답할 수 있어야 한다.
+</p>
+<p>
+	크게 두 가지 방식을 떠올려볼 수 있다.
+</p>
+<ul>
+	<li>
+		집합 내 요소가 바뀌지 않음에 따라&#44; 정렬 후 이분 탐색
+	</li>
+	<ul>
+		<li>
+			정렬에 $O(NlogN)$&#44; 쿼리 당 $O(logN)$으로 $O((N+Q)logN)$에 문제를 해결할 수 있다.
+		</li>
+	</ul>
+	<li>
+		tree / hash 기반 자료 구조 사용
+	</li>
+	<ul>
+		<li>
+			tree
+		</li>
+		<ul>
+			<li>
+				$N$개의 원소 삽입에 $O(NlogN)$&#44; 쿼리 당 $O(logN)$<span style="text-wrap:wrap;">으로 $O((N+Q)logN)$에 문제를 해결할 수 있다.</span> 
+			</li>
+		</ul>
+		<li>
+			hash
+		</li>
+		<ul>
+			<li>
+				$N$개의 원소 삽입에 $O(N)$&#44; 쿼리 당 $O(1)$로 $O(N+Q)$에 문제를 해결할 수 있다.
+			</li>
+			<li>
+				해시 충돌을 생각하지 않았을 때 기준이며&#44; 만약 해시 충돌을 고려한다면 $O(N(N+Q))$의 시간 복잡도를 갖게 된다.
+			</li>
+		</ul>
+	</ul>
+</ul></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

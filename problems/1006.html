@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1006. 어디 한번 구해 보시지 (Large) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1006</div>
+  <h1>어디 한번 구해 보시지 (Large)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=정수론">정수론</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	구간 $[x&#44; y]$와 $z$가 주어진다. 아래의 정보를 모두 구해보자.
+</p>
+<ol>
+	<li>
+		$[x&#44; y]$에서 $z$보다 작은 수의 개수
+	</li>
+	<li>
+		$[x&#44; y]$에서 $z$보다 큰 수의 개수
+	</li>
+	<li>
+		$[x&#44; y]$에서 $z$의 약수에 속한 수의 개수
+	</li>
+	<li>
+		$[x&#44; y]$에서 $z$를 약수로 갖는 수의 개수
+	</li>
+	<li>
+		$z$를 이진수로 나타내었을 때&#44; $1$인 비트의 개수
+	</li>
+</ol>
+<p>
+	두 정수 $a&#44; b$에 대해 $b = ac$를 만족하는 정수 $c$가 존재한다면&#44; $a$를 $b$의 약수라고 한다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 양의 정수 $x&#44; y&#44; z$가 공백으로 구분되어 주어진다.$(1 ≤ x ≤ y ≤ 10^{12}; x ≤ z ≤ y)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $1&#44; 2&#44; 3&#44; 4&#44; 5$의 결과를 공백으로 구분하여 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">1 40 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">9 30 4 4 2
+</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">$[1&#44; 40]$에서&#44; $10$의 약수는 $1&#44; 2&#44; 5&#44; 10$으로 총 $4$개가 있다.<br />
+$[1&#44; 40]$에서&#44; $10$을 약수로 갖는 수는 $10&#44; 20&#44; 30&#44; 40$으로 총 $4$개가 있다.<br /></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$1&#44; 2$ : $[x&#44; y]$에서 $z$보다 작은 수의 개수 및 큰 수의 개수는 $z - x$&#44; $y - z$로 계산할 수 있다.<div style="width:100%;height:10px;"></div>
+$3$ : $z$가 어떤 두 자연수의 곱 $p \times q$로 표현될 때&#44; $min(p&#44; q) ≤ \sqrt{z}$임을 이용해 $1&#44; 2&#44; ... &#44; \sqrt{z}$까지만 나눠도 충분하다. $O(\sqrt{z})$의 시간복잡도를 갖는다.<div style="width:100%;height:10px;"></div>
+$4$ : $[x&#44; y]$에서 $z$를 약수로 갖는 수는 곧 $[x&#44; y]$에서 $z$의 배수를 세는 것과 같다. $⌊\frac{y}{z}⌋$로 계산할 수 있다.<div style="width:100%;height:10px;"></div>
+$5$ : $z$를 이진수로 표현해보면 된다. 사용 언어의 라이브러리에 켜진 비트의 개수를 세주는 $popcount$ 함수가 있다면 그대로 사용해도 되지만&#44; 한 번쯤 직접 구현해 보는 것도 좋다.<div style="width:100%;height:10px;"></div>
+<pre>
+cnt       ← 0
+while z > 0
+    cnt += i & 1 // z의 첫 번째 비트가 켜져 있는지?
+    z >>= 1      // z의 비트 상태를 하나씩 밀어준다.
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1192. 지호의 학생회장 선거 (Tree) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1192</div>
+  <h1>지호의 학생회장 선거 (Tree)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 11</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=트리">트리</a> <a class="chip" href="../index.html?cat=세그먼트_트리">세그먼트 트리</a> <a class="chip" href="../index.html?cat=느리게_갱신되는_세그먼트_트리">느리게 갱신되는 세그먼트 트리</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a> <a class="chip" href="../index.html?cat=heavy_light_분할">heavy light 분할</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	이번 학생회장 선거에 출마하게 된 소프트웨어 공학과 소속의 지호는&#44; $1&#44; 2&#44; ... &#44; N$의 번호가 매겨지고 트리 구조를 이루는 $N$개의 구역에서 $Q$일에 걸쳐 선거 유세를 진행하려고 한다. 그와 동시에 컴퓨터 공학과 소속의 대표도 같은 $N$개의 구역에서 $Q$일에 걸쳐 선거 유세를 진행한다고 한다. 이를 본 총 학생회 측은 안전을 위해 하루에 최대 한 대표만 선거 유세가 가능하도록 통제하였다.
+</p>
+<p>
+	지호는 우리에게 다음과 같이 $Q$일 동안의 계획을 넘겨주며 실시간 당선 가능성 계산에 도움을 요청하였다. $i$번 구역은 $i$번 구역에게 전해진 소프트웨어 공학과의 간절함 $p_i$와 컴퓨터 공학과의 간절함 $q_i$를 갖고 있으며&#44; 최초 모든 $p_i = q_i = 0$이다.
+</p>
+<ul>
+	<li>
+		$1$ $u$ $v$ $k$ : 소프트웨어 공학과 소속에서 $u$번 구역과 $v$번 구역을 잇는 단순 경로 위 존재하는 모든 구역에 간절함을 전해&#44; 그 구역들의 $p_i$를 $p_i + k$로 만든다.
+	</li>
+	<li>
+		$2$ $u$ $v$ $k$ : 컴퓨터 공학과 소속에서 $u$번 구역과 $v$번 구역을 잇는 단순 경로 위 존재하는 모든 구역에 간절함을 전해&#44; 그 구역들의 $q_i$를 $q_i + k$로 만든다.
+	</li>
+	<li>
+		$3$ $u$ $v$ : 현재까지&nbsp;<span style="text-wrap:wrap;">$u$번 구역과 $v$번 구역을 잇는 단순 경로 위 존재하는 모든 구역에 전해진 간절함에 대해</span>&#44; 해당 구역에서 지호가 당선될 가능성이 유력한지 판단한다.
+	</li>
+	<ul>
+		<li>
+			단순 경로 위 존재하는 모든 구역의&nbsp;$S_{1} = \sum\limits p$&#44; $S_{2} = \sum\limits q$인 $S_1&#44; S_2$에 대해 $S_1 &gt; S_2$라면 $1$을&#44; 그렇지 않다면 $0$을 출력하면 된다.
+		</li>
+	</ul>
+</ul>
+$N$개의 구역이 이루는 트리 구조 및&nbsp;$Q$일 동안의 계획이 주어졌을 때&#44; 위를 적절히 수행하는 프로그램을 작성해주도록 하자!</div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 선거 유세를 진행할 구역의 수 $N$과 계획된 총 날의 수 $Q$가 공백으로 구분되어 주어진다. $(1 ≤ N&#44; Q ≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $N-1$개의 줄에 걸쳐 직접적으로 이어진 구역의 번호 $u&#44; v$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ u&#44; v&nbsp;≤ N; u&nbsp;≠ v)$
+</p>
+<p>
+	다음 $Q$개의 줄에 걸쳐&nbsp;$1&#44; 2&#44; ... &#44; Q$번째 날에 진행할 계획의 기록이 주어진다. $(1 ≤ u&#44; v ≤ N; 1 ≤ k ≤ 10&#44;000)$
+</p>
+<p>
+	입력으로 주어지는 모든 수는 양의 정수이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">실시간 당선 가능성 계산의 계획이 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8 9
+1 2
+1 3
+2 4
+2 5
+3 6
+3 7
+4 8
+1 1 5 3
+3 1 8
+2 3 6 2
+2 1 8 2
+3 1 8
+1 6 8 2
+3 3 5
+2 1 8 1
+3 4 8</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+0
+1
+0</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$1$번 쿼리의 적용을 $+k$로, $2$번 쿼리의 적용을 $-k$로 생각하자. 그럼 $3$번 쿼리는 해당 구간에 전해진 간절함의 합의 부호로 판단할 수 있다.
+</p>
+<p>
+	나이브하게 접근해 본다면, 각 쿼리마다 $dfs$를 돌리는 것이 해답이다. 이 경우 $O(QN)$의 시간 복잡도를 갖게 될테고 문제의 제한 상 시간 초과를 피할 수 없다.
+</p>
+본 문제를 만약 선형 구조에서 푼다고 생각해보자. 그럼 $range$ 단위 업데이트 및 합쿼리를 처리해야 하므로 $Lazy$ $Propagation$을 얹은 세그먼트 트리를 이용해 $O(QlogN)$에 문제를 풀 수 있다. 하지만&nbsp;$N$개의 구역이 트리 구조를 이루기 때문에 곧바로 이를 적용하기엔 무리가 있다.<br />
+따라서 트리에 선형적인 접근을 할 수 있도록, 나아가 쿼리마다 변화하는 경로 단위 쿼리를 효율적으로 처리할 수 있도록 해야 한다. $heavy-light$ $decomposition$을 이용해 트리 모양을 재정립 하자.<br />
+<br />
+<p>
+	쿼리당 처리 비용을 정리해보자.
+</p>
+<ul>
+	<li>
+		$u, v$가 같은 체인에 속할 때까지 체인 단위로 끌어 올려주는 작업
+	</li>
+	<ul>
+		<li>
+			최악의 경우라도 $heavy$ 체인을 거를 때마다 절반 이상의 트리 규모가 되므로 $O(logN)$개의 서로 다른 체인만 지나게 된다. $small$ $to$ $large$의 증명과 비슷한 흐름이다.
+		</li>
+	</ul>
+	<li>
+		각 체인에서 쿼리를 처리하는 작업
+	</li>
+	<ul>
+		<li>
+			$Lazy$ $Propagation$을 적절히 얹어준 세그먼트 트리로 $O(logN)$에 쿼리를 처리할 수 있다.
+		</li>
+	</ul>
+</ul>
+위에 따라 쿼리당 $O(log^2N)$에 처리할 수 있으므로, 문제를 총 $O(Qlog^2N)$의 시간복잡도로 해결할 수 있다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

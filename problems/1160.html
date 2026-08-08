@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1160. 차 좀 뺄게요 (Large) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1160</div>
+  <h1>차 좀 뺄게요 (Large)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 9</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=세그먼트_트리">세그먼트 트리</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	좁은 주차장에 $N$대의 차가 일렬로 늘어서 있다. 출구 쪽과 가까운 곳부터 차례대로 $1&#44; 2&#44; ... &#44; N$번 차가 된다. 오늘은 주차장 청소가 있는 날이라&#44; 모든 차가 빠져야 한다. $i$번 차가 빠지려면&#44; 길이 좁기 때문에 출구와 $i$번 차 사이에 있는 모든 차들이 비켜 주어야 한다.
+</p>
+<p>
+	예를 들어 남아 있는 차들의 상태가 $1&#44; 3&#44; 4&#44; 5&#44; 7$ 이고 $5$번 차가 빠지려 한다고 해보자. 그럼 $1&#44; 3&#44; 4$번 차가 비켜 주어야 하며&#44; $5$번 차가 빠지고 난 다음의 배치는 기존 순서를 유지한다. 따라서 차들의 상태는 $1&#44; 3&#44; 4&#44; 7$ 이 된다.
+</p>
+<p>
+	구체적으로 차가 빠지는 순서 목록 $P_1&#44; P_2&#44; ... &#44; P_N$이 주어질 때&#44; $P_i$번 차가 빠지기 위해 비켜 주어야 하는 차의 수를 $C_i$라 하자.
+</p>
+<p>
+	이때&#44; $\sum\limits_{i=1}^N C_i$ 를 계산하는 프로그램을 작성하여라.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 주차된 차의 수 $N$이 주어진다. $(1 ≤ N ≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄에 차가 빠지는 순서 목록 $P_1&#44; P_2&#44; ... &#44; P_N$이 공백으로 구분되어 주어진다. $(1 ≤ P_i ≤ N)$
+</p>
+<p>
+	$P_i$는 고유하며&#44; 한 번 빠진 차는 그 이후로 아무런 영향을 주지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $\sum\limits_{i=1}^N C_i$ 를 출력한다. 편의 상 차가 비켜주는 행위를 제외한 다른 모든 요인은 고려하지 않는다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7
+2 6 5 1 4 3 7
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">9</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">$P_1&#44; P_2&#44; ... &#44; P_7$에 대한 $C_1&#44; C_2&#44; ... &#44; C_7$은 $1&#44; 4&#44; 3&#44; 0&#44; 1&#44; 0&#44; 0$ 이 된다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	간단하게 생각했을 때, 다음의 시뮬레이션을 반복하면 답을 구할 수 있다.
+</p>
+<p>
+	<ol>
+		<li>
+			$1, 2, ... , N$번 차에 $1$의 가중치를 부여한다.
+		</li>
+		<li>
+			$1 ≤ j &lt; P_i$인 모든 $j$번 차의 가중치 합을 답에 누적한다. $(i = 1, 2, ... N)$
+		</li>
+		<li>
+			$P_i$번 차의 가중치를 $0$으로 만든다.
+		</li>
+		<li>
+			$i &lt; N$이라면 $i$의 값을 $1$ 증가 시키고 $2$로 돌아간다.
+		</li>
+	</ol>
+위 과정을 나이브하게 계산하면 $O(N^2)$의 시간 복잡도로 제한 시간 내에 문제를 해결할 수 없다. 세그먼트 트리를 이용해 구간을 관리하자.
+</p>
+<p>
+	그럼 럼 각 쿼리를 $O(logN)$에 처리할 수 있으므로, 문제를 총 $O(NlogN)$에 해결할 수 있게 된다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

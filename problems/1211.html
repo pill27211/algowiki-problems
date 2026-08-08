@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1211. 피라미드 탑 쌓기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1211</div>
+  <h1>피라미드 탑 쌓기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=이분_탐색">이분 탐색</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	크기가 동일한 $25$개의 블록으로 다음과 같은 $5$층 피라미드 탑을 쌓을 수 있다.
+</p>
+<p style="text-align:center;">
+	<img src="data:image/png;base64&#44;iVBORw0KGgoAAAANSUhEUgAAAiQAAACsCAYAAABLj7fsAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPaSURBVHhe7dqxThtBFEBRD51bl/4LxP//AfyGS7cuHa80ElKCIqcgN5k9p+FN+bRo94ph3B8OP/n4+Di8vb3NEwDA9xrv7++/BMnLy8vh9fV1ngAAvteXfyEBAPibXuZPAICMIAEAcoIEAMgJEgAg559aYTFjjDntg1cYrEGQwGK2ILlcb/O0tvPpKEhgEa5sAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgNy4P8wZljXGmBP8n7yqWZ0gYRe2ILlcb/O0tvPpaNfFbHt6VbM6VzYAQE6QAAA5QQIA5AQJAJATJABATpAAADlBAgDkBAkAkBMkAEBOkAAAOUECAOQECQCQEyQAQE6QAAA5QQIA5AQJAJATJABATpAAADlBAgDkBAkAkBMkAEBOkAAAOUECAOQECQCQEyQAQE6QAAA5QQIA5AQJAJATJABAbtwf5swOjTHmBPBv8FnaJ0Gyc1uQXK63eVrX+XTcxZ4bu65nb8/UZ2mfXNkAADlBAgDkBAkAkBMkAEBOkAAAOUECAOQECQCQEyQAQE6QAAA5QQIA5AQJAJATJABATpAAADlBAgDkBAkAkBMkAEBOkAAAOUECAOQECQCQEyQAQE6QAAA5QQIA5AQJAJATJABATpAAADlBAgDkBAkAkBMkAEBOkAAAOUECAOTG/WHOTGOMOQHA9/EJ/iRIvrAFyeV6m6e1nU/HXey6lz03dl2PZ7qmbVef4E+ubACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAIDcuD/M+bfGGHMCAHjeM6nxR0Fyud7maW3n09Gui/FM1+T3dz12Xc+25zOp4coGAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyAkSACAnSACAnCABAHKCBADICRIAICdIAICcIAEAcoIEAMgJEgAgJ0gAgJwgAQByggQAyI37w5x/a4wxJwCA5zyZGc8HCQDAd3FlAwDkBAkAkBMkAEBOkAAAOUECAOQECQCQEyQAQOxw+AEsj6wOHjcv0wAAAABJRU5ErkJggg==" alt="" /> 
+</p>
+<p style="text-align:left;">
+	만약 블록의 개수가 $24$개였다면 최대 $4$층 높이의 피라미드를 쌓을 수 있고 $8$개의 블록이 남았을 것이다.
+</p>
+<p style="text-align:left;">
+	이를 바탕으로 아래와 같은 쿼리 $Q$개를 처리하는 프로그램을 작성해보자.
+</p>
+<ul>
+	<li>
+		$N$ : $N$개의 블록을 가지고 쌓을 수 있는 최대 피라미드 높이와 쌓은 후 남게 되는 블록의 수를 공백으로 구분하여 출력한다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 쿼리의 개수 $Q$가 주어진다. $(1&nbsp;≤ Q&nbsp;≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $Q$개의 줄에 걸쳐 블록의 수를 의미하는 정수 $N$이 주어진다. $(1&nbsp;≤ N&nbsp;≤ 10^{18})$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">쿼리가 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+4
+24
+25
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">2 0
+4 8
+5 0</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">블록의 개수가 적당히 작았다면, $N$에서 $1, 3, 5, ...$를 차례대로 빼내보며 나이브하게 답을 구해도 충분했을 것이다.<br>
+그러나 본 문제는 $1 ≤ n ≤ 10^{18}$인 $N$에 대한 답을 $10^5$번까지 구할 수 있어야 하기 때문에 나이브한 방식을 적용하기엔 다소 무리가 있다.<br><br>
+수열 $a$에 대해 $a_i$를 "$i$층 높이의 피라미드 탑을 쌓기 위해 필요한 블록의 개수"로 정의하면 $a$는 다음과 같을 것이다.<br>
+<li> $1^2, 2^2, 3^2, ... , ({10^9})^2$ </li>
+<br>
+우리가 해결해야 할 쿼리의 내용은 결국 수열 $a$에서 $N$의 위치를 찾아내야 하는 것으로 바라볼 수 있고, $a$는 단조 증가하므로 이분 탐색을 이용해 빠르게 찾아낼 수 있다. 시간복잡도는 $O(QlogN)$이 되겠다.<br><br>
+
+구현은 다음을 참고하자.
+<pre>
+maxH = 0, remain = 0          ← 최대 피라미드 높이, 남게 되는 블록의 수
+left = 1, right = 1e9         ← 존재할 수 있는 층은 1 ~ 1e9
+for left <= right
+    mid = (left + right) / 2
+    if n >= mid * mid         ← 주어진 블록(N)을 이용해 mid층의 피라미드를 쌓을 수 있는가?
+        maxH = mid
+        remain = n - mid * mid
+        left = mid + 1
+    else
+        right = mid - 1
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

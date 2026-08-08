@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1140. 진수와 남훈이의 2차전 준비 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1140</div>
+  <h1>진수와 남훈이의 2차전 준비</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=해시를_사용한_집합과_맵">해시를 사용한 집합과 맵</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	<a class="ke-insertfile" href="problem.php?id=1138" target="_blank">휴전</a>은 끝났다. 이제 그들은 서로 전략적으로 접근하기로 했다.
+</p>
+<p>
+	현재 $n$개의 거점이 있고&#44; 각 거점에는 $1&#44; 2&#44; ... &#44; n$의 고유한 번호가 할당되어 있다. 또한 각 거점은 진수의 세력 또는 남훈이의 세력이 점령한 상태이다.
+</p>
+<p>
+	어떤 연속한 구간 거점 $l&#44; l$+$1&#44; ... &#44; r$-$1&#44; r$에 전쟁이 일어나면 해당 구간에 더 많이 점령해 있는 세력이 반드시 승리한다. 반면&#44; 해당 구간에 점령해 있는 진수의 세력의 수와 남훈이의 세력의 수가 동일하다면 승부를 알 수 없게 된다. 따라서 그들은 이런 구간을 모두 찾아 전략을 짜기로 했다.
+</p>
+<p>
+	그러나 그들은 거점의 수가 많아 어려움을 겪고 있다. 당신은 이 문제를 해결할 수 있을까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 거점의 개수 $n$이 주어진다. $(1 ≤ n ≤ 2 \times 10^5)$
+</p>
+<p>
+	둘째 줄에 각 거점의 점령 상태를 나타내는 문자열이 주어진다. $i$번 거점에 대해&#44; $i$번 문자가 J라면 진수의 세력이 점령했다는 뜻이고 N이면 남훈이의 세력이 점령했다는 뜻이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">존재하는 모든 연속 구간에 대해 J의 개수와 N의 개수가 일치한 구간의 수를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7
+JNJNJNN
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">9</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">$[1&#44; 2]&#44; [1&#44; 4]&#44; [1&#44; 6]&#44; [2&#44; 3]&#44; [2&#44; 5]&#44; [3&#44; 4]&#44; [3&#44; 6]&#44; [4&#44; 5]&#44; [5&#44; 6]$으로 총 $9$가 답이 된다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

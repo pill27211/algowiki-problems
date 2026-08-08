@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1132. 진수와 남훈이의 세력 싸움 (Small) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1132</div>
+  <h1>진수와 남훈이의 세력 싸움 (Small)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=시뮬레이션">시뮬레이션</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	진수의 세력과 남훈이의 세력에는 각각 $n$명의 사람이 있다. 각 사람은 전투력을 가지고 있으며&#44; 어떤 두 사람이 싸울 땐 오로지 전투력만을 고려한다.
+</p>
+<p>
+	이제 이 두 세력이 다음과 같이 세력 싸움을 진행하려 한다.
+</p>
+<ol>
+	<li>
+		진수의 세력에 속한 사람들의 전투력은 $A_1&#44; A_2&#44; ... &#44; A_n$&#44; 남훈이의 세력에 속한 사람들의 전투력은 $B_1&#44; B_2&#44; ... &#44; B_n$이다.
+	</li>
+	<li>
+		$1 ≤ i&#44; j ≤ n$<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">인 $i&#44; j$에 대해 가능한 모든 $A_i$ $:$ $B_j$ 쌍이 싸움을 진행한다. 따라서&#44; 싸움은 총 $n^2$번 일어난다.</span></span> 
+	</li>
+	<ul>
+		<li>
+			$A_i &gt; B_j$라면 진수의 세력이 $1$점을 획득한다.
+		</li>
+		<li>
+			<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$A_i = B_j$라면 두 세력 모두 점수를 얻지 못한다.</span> 
+		</li>
+		<li>
+			<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">$A_i &lt; B_j$라면 남훈이의 세력이 $1$점을 획득한다.</span> 
+		</li>
+	</ul>
+	<li>
+		<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">두 세력 중 획득한 점수가 더 높은 세력이 승리한다.</span> 
+	</li>
+</ol>
+<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">각 세력에 속한 사람들의 점수가 주어질 때&#44; 어느 세력이 승리하게 될지 판단해보자.</span></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 한 세력에 속한 사람의 수 $n$이 주어진다.&nbsp;$(1 ≤ n ≤ 1&#44;000)$
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">둘째 줄에 $A_1&#44; A_2&#44; ... &#44; A_n$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ A_i ≤ 1&#44;000)$</span>
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">셋째 줄에 $B_1&#44; B_2&#44; ... &#44; B_n$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ B_i ≤ 1&#44;000)$</span>
+</p>
+<p>
+	<span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#202124;font-family:&quot;font-size:20px;text-wrap:wrap;background-color:#FFFFFF;">두 세력이 동일한 점수를 획득하게 되는 경우는 주어지지 않는다.</span></span> 
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 진수의 세력이 승리하게 되면 'JINSU!'&#44; 남훈이의 세력이 승리하게 되면 'NAMHUN!'을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+1 3 4 6 8 10
+2 3 3 7 9 15
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">NAMHUN!</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">진수의 세력은 $16$점&#44; 남훈이의 세력은 $18$점을 얻어 남훈이의 세력이 승리하게 된다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">이 문제를 해결하는 가장 나이브한 방식을 생각해보자. 이는 곧 가능한 모든 쌍에 대해 검사해주는 것이다.<br>
+$O(n^2)$의 시간복잡도를 갖지만 $1 ≤ n ≤ 1,000$ 이므로 충분히 문제를 해결할 수 있다.
+<pre>
+cnt_J, cnt_N    ← 진수, 남훈이의 세력이 획득한 점수
+for i           ← 1 to n
+    for j       ← 1 to n
+        if a[i] > b[j]
+            cnt_J++
+        elif a[i] < b[j]
+            cnt_N++
+</pre>
+만약 제한이 십만 단위라면, 어떻게 문제를 해결해야 할까?</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

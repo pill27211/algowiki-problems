@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1017. 남훈이의 궁금증 1 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1017</div>
+  <h1>남훈이의 궁금증 1</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=누적_합">누적 합</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	남훈 : 자&#44; 여기 $n$개의 정수로 이루어진 수열이 있어. 이를 $a_1&#44; a_2&#44; ... &#44; a_n$이라 하자. 여기서 특정 구간 $[l&#44; r]$의 합을 구할 수 있을까?
+</p>
+<p>
+	진수 : 뭐야 쉽잖아. 그냥 반복문으로 순회하면 $O(n)$에 풀 수 있어.
+</p>
+<p>
+	남훈 : 음.. 그럼 만약에 $n$이 최대 $100&#44;000$까지 될 수 있고&#44; 그걸 $1$초 내로 $100$번이나 구해야 한다면?
+</p>
+<p>
+	진수 : 그 정도 연산량도 크게 문제 없을 것 같은데? 요즘 컴퓨터는 초 당 억단위 연산을 수행할 수 있어.
+</p>
+<p>
+	남훈 : 그럼 $10&#44;000$번. 아니 $100&#44;000$번 구해야 한다면?
+</p>
+<p>
+	진수 : 그렇게 많이..?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 수열의 길이를 나타내는 정수 $n$과 쿼리의 개수 $Q$가 공백으로 구분되어 주어진다. $(1 ≤ n&#44; Q ≤ 100&#44;000)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다.$(1 ≤ a_i ≤ 1&#44;000)$
+</p>
+<p>
+	셋째 줄부터 $Q$개의 줄에 걸쳐 $l&#44; r$이 공백으로 구분되어 주어진다. $(1 ≤ l ≤ r ≤ n)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 쿼리의 답을 한 줄에 하나씩 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 3
+1 2 3 4 5
+1 3
+2 4
+1 5
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">6
+9
+15</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">문제 해결에 어려움이 있다면 <a class="ke-insertfile" href="https://algowiki.co.kr/wiki.php?data=%EB%88%84%EC%A0%81%20%ED%95%A9" target="_blank">누적 합 위키</a>를 참고하자.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1012. 피보나치 수 1 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1012</div>
+  <h1>피보나치 수 1</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 2</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	피보나치 수 $F_n$은 다음으로 정의되는 수열이다.
+</p>
+<ul>
+	<li>
+		<span style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;"></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/58ebe8b2d5551fb272cd4258940fe1e492592d02" class="mwe-math-fallback-image-inline mw-invert" aria-hidden="true" alt="{\displaystyle F_{0}=0}" style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;vertical-align:-0.671ex;display:inline-block;width:6.81ex;height:2.509ex;" /> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;"></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c374ba08c140de90c6cbb4c9b9fcd26e3f99ef56" class="mwe-math-fallback-image-inline mw-invert" aria-hidden="true" alt="{\displaystyle F_{1}=1}" style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;vertical-align:-0.671ex;display:inline-block;width:6.81ex;height:2.509ex;" /> 
+	</li>
+	<li>
+		<span style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;"></span><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a176d38fc02d945d2966c5a4b8d84e295291ed63" class="mwe-math-fallback-image-inline mw-invert" aria-hidden="true" alt="{\displaystyle F_{n}=F_{n-1}+F_{n-2}\qquad (n\in \{2&#44;3&#44;4&#44;\dots \})}" style="background-color:#FFFFFF;color:#202122;font-family:sans-serif;font-size:14px;vertical-align:-0.838ex;display:inline-block;width:40.606ex;height:2.843ex;" /> 
+	</li>
+</ul>
+<p>
+	$0$번째 항 $F_0 = 0$을 시작으로 초항을 나열해보면 다음과 같을 것이다.
+</p>
+<ul>
+	<li>
+		$0&#44; 1&#44; 1&#44; 2&#44; 3&#44; 5&#44; 8&#44; 13&#44; ...$
+	</li>
+</ul>
+<p>
+	$n$이 주어질 때&#44; $n$번째 피보나치 수 $F_n$을 구해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 음이 아닌 정수 $n$이 주어진다. $(0 ≤ n ≤ 20)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 $F_n$을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">8
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$n$번째 피보나치 수를 구하는 방법은 정말 다양하다. 본 문제로 피보나치 수의 첫걸음을 떼보도록 하자. 아래 코드는 피보나치 수를 구하는 가장 나이브한 방법으로, $O(2^n)$의 시간복잡도를 갖는다.
+<pre>
+fibonacci(n)
+    if n == 0 || n == 1
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

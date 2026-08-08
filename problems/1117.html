@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1117. 야속한 31번 버스 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1117</div>
+  <h1>야속한 31번 버스</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=시뮬레이션">시뮬레이션</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	진수와 필선이는 학교에서의 일과를 마치면 우선적으로 31번 버스를 타고 집에 간다. 하지만 31번 버스는 배차 간격이 길어&#44; 승차 타이밍을 놓치게 되면 다른 버스를 타는 것이 낫다. 맨날 버스 정보를 검색한 뒤 부리나케 뛰어 다니는 진수와 필선이를 위해&#44; 다음과 같은 프로그램을 만들어주도록 하자!
+</p>
+<ul>
+	<li>
+		정수 $d_1&#44; d_2&#44; v_1&#44; v_2$를 입력받는다.
+	</li>
+	<ul>
+		<li>
+			$d_1$ : 진수와 필선이의 위치로부터 버스 정류장에 도달하기 위해 이동해야 하는 직선 거리
+		</li>
+		<li>
+			$d_2$ : 31번 버스로부터 버스 정류장에 도달하기 위해 이동해야 하는 직선 거리
+		</li>
+		<li>
+			$v_1$ : 진수와 필선이가 $1$초당 움직일 수 있는 직선 거리
+		</li>
+		<li>
+			$v_2$ : 31번 버스가 $1$초당 움직일 수 있는 직선 거리
+		</li>
+	</ul>
+	<li>
+		진수와 필선이가 31번 버스보다 먼저&#44; 혹은 동시에 버스 정류장에 도달할 수 있는지 판단한다.
+	</li>
+	<ul>
+		<li>
+			거리 $d$를 $v$의 속도로 이동 하는 데에 걸리는 시간 $t$는 $t =&nbsp;⌈\frac{d}{v}⌉$로 계산한다.
+		</li>
+		<li>
+			예를 들어 $d = 10$&#44; $v = 3$일 경우 $t =&nbsp;⌈\frac{10}{3}⌉ = 4$초이다.
+		</li>
+	</ul>
+	<li>
+		만약 그들이 먼저&#44; 혹은 동시에 도달할 수 있다면 "so easy"&#44; 도달할 수 없다면 "give up"을 출력하고 프로그램을 종료한다.
+	</li>
+</ul>
+<p>
+	진수와 필선이&#44; 31번 버스는 동시에 출발해 쉬지 않고 직선 루트로 움직이며&#44; 경로 위 장애물은 없다고 가정한다. 또한 진수와 필선이가 승차하는 시간은 무시하며&#44; 오로지 버스 정류장에 도달하는 데에 걸린 시간만을 기준으로 한다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에<span style="text-wrap:wrap;">&nbsp;정수 $d_1&#44; d_2&#44; v_1&#44; v_2$가 공백으로 구분되어 주어진다.$(1&nbsp;≤ d_1&#44; d_2&#44; v_1&#44; v_2 ≤ 10&#44;000; v_1 &lt; d_1; v_2 &lt; d_2)$</span></div></section>
+<section class="sec"><h2>출력</h2><div class="body">문제에 정의된 프로그램이 출력하게 될 결과를 첫째 줄에 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">50 100 10 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">so easy</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">이 문제는 실화를 바탕으로 제작되었습니다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">지문이 짧지 않지만, 막상 읽어보면 구해야 하는 것은 사실 굉장히 간단하다는 것을 알 수 있다.<br />
+$d_1$을 $v_1$의 속도로 주파하는 데에 걸리는 시간 $t_1$, $d_2$를 $v_2$의 속도로 주파하는 데에 걸리는 시간 $t_2$를 구하자. 이를 계산하는 방식은 본문에 나와 있다.<br />
+이제 $t_1$과 $t_2$를 비교해 $t_1 ≤ t_2$ 라면 "so easy"를, $t_1 &gt; t_2$라면 "give up"을 출력해주면 되겠다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

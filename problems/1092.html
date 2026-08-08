@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1092. 최고의 요리 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1092</div>
+  <h1>최고의 요리</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 5</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=브루트포스_알고리즘">브루트포스 알고리즘</a> <a class="chip" href="../index.html?cat=백트래킹">백트래킹</a> <a class="chip" href="../index.html?cat=비트마스킹">비트마스킹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$개의 식재료가 있다. 최고의 요리사인 당신은 각 식재료에 대한 맛의 수치 $a_i$를 단번에 파악하였고 $k$개의 식재료를 사용해 최종 요리를 완성하려고 한다.
+</p>
+<p>
+	최종 요리의 맛은&#44; 해당 요리에 들어간 식재료들의 맛의 수치를 모두&nbsp;<a class="ke-insertfile" href="https://en.wikipedia.org/wiki/Bitwise_operation#:~:text=and%20therefore%20even.-&#44;OR&#44;-%5Bedit%5D" target="_blank">bitwise OR</a>한 값과 같다. 이 값이 크면 클수록 맛있는 요리이자 최고의 요리이다.
+</p>
+<p>
+	$n$개의 식재료에 대해 $a_1&#44; a_2&#44; ... &#44; a_n$이 주어졌을 때&#44; 당신이 만들게 될 최고의 요리의 맛은 얼마일까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 식재료의 수 $n$과 사용할 식재료의 수 $k$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ k ≤ n ≤ 15)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ a_i &lt; 2^{20})$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">당신이 만들게 될&nbsp;</span><span style="text-wrap:wrap;">최고의 요리의 맛을 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 2
+1 2 4 6 9
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">15</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">$4&#44; 5$번째 식재료를 고르면 요리의 맛은 $a_4$ | $a_5$ $=$ $6$ | $9$ $=$ $15$가 되고&#44; 이보다 맛있는 요리는 존재하지 않는다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">$n&#44; k$의 제한이 충분히 작으므로&#44; 가능한 모든 경우를 조사해봐도 충분하다.
+사용 언어에서 $permutation$ 관련 함수를 지원한다면 이를 써도 되고&#44; 그렇지 않더라도 재귀적으로 쉽게 구현할 수 있다.
+<pre>
+solve(mask&#44; state) // 사용한 식재료의 상태&#44; 현재 맛의 수치
+{
+    if bitcount(mask) == k    // k개의 요리를 사용했다면
+        return state
+
+    res = 0
+    for i    ← 1 to n
+        if (mask & (1 << i)) == 0                                // i번 재료를 사용하지 않았다면
+            res = max(res&#44; solve(mask | (1 << i)&#44; state | a[i])) // 분기해 본다.
+    return res
+}
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

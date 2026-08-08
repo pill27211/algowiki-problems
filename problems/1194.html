@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1194. 선용이의 간선 추가하기 놀이 2 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1194</div>
+  <h1>선용이의 간선 추가하기 놀이 2</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 7</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=다이나믹_프로그래밍">다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=조합론">조합론</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p style="text-wrap:wrap;">
+	<a class="ke-insertfile" href="problem.php?id=1097" target="_blank">지난 놀이</a>도 따분해진 선용이는&#44; 고민 끝에 오랫동안 즐길 수 있는 게임을 구상했다. 구체적으로 다음과 같다.
+</p>
+<ol>
+	<li>
+		$1&#44; 2&#44; ... &#44; n$의 번호가 매겨진 $n$개의 정점을 새롭게 그려 놓는다.
+	</li>
+	<li>
+		다음을 만족하는 정점 $i&#44; j$를 고른다. $(1 ≤ i&#44; j ≤ n; i ≠ j)$
+	</li>
+	<ul>
+		<li>
+			지금까지 정점 $i$에서 나가는 간선은 존재하지 않았다.
+		</li>
+		<li>
+			지금까지 정점 $j$로 들어오는 간선은 존재하지 않았다.
+		</li>
+	</ul>
+	<li>
+		조건에 맞는&nbsp;<span style="text-wrap:wrap;">정점 $i&#44; j$를 골랐다면 $i$에서 $j$로 향하는 간선을 추가하고 $2$로 돌아간다.</span> 
+	</li>
+	<li>
+		<span style="text-wrap:wrap;">조건에 맞는 정점 $i&#44; j$를 고르지 못했다면 다음을 따른다.</span> 
+	</li>
+	<ul>
+		<li>
+			$n$개의 간선을 추가했고&#44; 완성된 그래프가 지금까지 한 번도 만들어지지 않은 그래프라면 $1$점을 획득한다.
+		</li>
+		<li>
+			더 이상 새로운 형태의 그래프가 만들어질 수 없다면 놀이를 종료한다.
+		</li>
+		<li>
+			새로운 형태의 그래프가 아직 만들어질 가능성이 있다면 $1$로 돌아간다.
+		</li>
+	</ul>
+</ol>
+<p>
+	선용이는 $n$이&nbsp;<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">작을 땐 얻을 수 있는 최대 점수를 쉽게 알아냈지만&#44; $n$<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">이 커질수록&nbsp;<span style="text-wrap:wrap;"><span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">얻을 수 있는 최대 점수를 알아내는</span>&nbsp;데에</span>&nbsp;어려움을 느꼈다.</span></span> 
+</p>
+<p>
+	<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;"><span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">선용이를 위해 $n$이 주어졌을 때 <span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">얻을 수 있는 최대 점수를 알려주는 프로그램을 작성해주도록 하자!</span></span></span> 
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 테스트 케이스의 수 $T$가 주어진다. $(1&nbsp;≤ T&nbsp;≤ 10^5)$
+</p>
+<p>
+	둘째 줄부터 $T$개의 줄에 걸쳐 정점의 개수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 10^6)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 테스트 케이스마다 $n$개의 정점으로 <span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;&quot;">얻을 수 있는 최대 점수</span><span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:rgba(255&#44;;">를 출력한다. 단&#44; 수가 너무 커질 수 있으니 $10^9+7$로 나눈 나머지를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+1
+2
+3
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">0
+1
+2</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body"><ol>
+	<li>
+		$n = 1$
+	</li>
+	<ul>
+		<li>
+			$n$개의 간선을 추가하지 못했고 더 이상 새로운 그래프가 만들어질 가능성이 없으므로 놀이를 종료한다.
+		</li>
+	</ul>
+	<li>
+		$n = 2$
+	</li>
+	<ul>
+		<li>
+			$1 → 2$&#44; $2 → 1$로 간선을 추가해 $1$점을 획득하고 난 후&#44; 더 이상 새로운 그래프가 만들어질 가능성이 없으므로 놀이를 종료한다.<br />
+		</li>
+	</ul>
+	<li>
+		$n = 3$
+	</li>
+	<ul>
+		<li>
+			$1 → 2$&#44; $2 → 3$&#44; $3 → 1$로 간선을 추가해 $1$점을 획득한다.<br />
+		</li>
+		<li>
+			$1 → 3$&#44; $3 → 2$&#44; $2 → 1$로 간선을 추가해 $1$점을 획득한다.<br />
+		</li>
+		<li>
+			<span style="text-wrap:wrap;"><span style="text-wrap:wrap;">더 이상 새로운 그래프가 만들어질 가능성이 없으므로 놀이를 종료한다.</span></span> 
+		</li>
+	</ul>
+</ol></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

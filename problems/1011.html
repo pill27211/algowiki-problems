@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1011. 수 정렬하기 (Large) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1011</div>
+  <h1>수 정렬하기 (Large)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$N$개의 수로 이루어진 수열 $a_1&#44; a_2&#44; ... a_N$과&#44; $k$가 주어진다.
+</p>
+<p>
+	$k$가 $1$이라면 오름차순 정렬한 결과를&#44; $2$라면 내림차순 정렬한 결과를 출력해보자.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 수열의 길이를 나타내는 정수 $N$과 $k$가 주어진다. $(1 ≤ N ≤ 300&#44;000 ; 1 ≤ k ≤ 2)$<br />
+둘째 줄에 $a_1&#44; a_2&#44; ... a_N$이 공백으로 구분되어 주어진다. $(1 ≤ a_i ≤ 10^7)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">$k$가 $1$이라면 수열 $a_N$을 오름차순 정렬한 결과를&#44; $2$라면 내림차순 정렬한 결과를 공백으로 구분하여 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">6 1
+4 2 8 1 6 2
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1 2 2 4 6 8
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	<a class="ke-insertfile" href="https://algowiki.co.kr/problem.php?id=1010" target="_blank">Small</a>&nbsp;버전과 달리 $N ≤ 300&#44;000$<span style="text-wrap:wrap;">로 범위가 늘어났다. 이에 따라 <span style="text-wrap:wrap;">널리 알려진&nbsp;</span><span style="text-wrap:wrap;">$O(N^2)$ 정렬인&nbsp;</span><span style="text-wrap:wrap;"></span><span style="text-wrap:wrap;">버블&#44; 선택&#44; 삽입 정렬</span>을 사용하기엔 무리가 있다.</span> 
+</p>
+<p>
+	<span style="color:#212529;font-family:&quot;font-size:16px;text-wrap:wrap;background-color:#FFFFFF;">퀵 정렬 또한 평균적으로 빠른 속도를 자랑하지만&#44; 최악의 경우가 $O(N^2)$임은 변하지 않는다.</span> 
+</p>
+<p>
+	사용 언어 라이브러리에서 $O(NlogN)$ 수준의 정렬 함수를 지원해준다면 이를 사용해 쉽게 해결할 수 있겠지만&#44; $O(NlogN)$ 수준의 정렬을 직접 구현해보는 것도 좋은 경험이 된다. (병합 정렬&#44; 힙 정렬 등)
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

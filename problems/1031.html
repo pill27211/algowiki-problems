@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1031. 집합과 쿼리 3 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1031</div>
+  <h1>집합과 쿼리 3</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=트리를_사용한_집합과_맵">트리를 사용한 집합과 맵</a> <a class="chip" href="../index.html?cat=해시를_사용한_집합과_맵">해시를 사용한 집합과 맵</a> <a class="chip" href="../index.html?cat=쿼리형_문제">쿼리형 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	집합 $U$ = { ∅ }에 대해 아래의 쿼리를 수행하는 프로그램을 작성해보자.
+</p>
+<ul>
+	<li>
+		$insert$ $k$ : 집합 $U$에 $k$를 추가한다. $k$가 이미 $U$에 속한다면 아무것도 수행하지 않는다.
+	</li>
+	<li>
+		$delete$ $k$ : 집합 $U$에서 $k$를 제거한다. $k$가 $U$에 없다면 아무것도 수행하지 않는다.
+	</li>
+	<li>
+		$find$ $k$ : 집합 $U$에 $k$가 속해 있다면 $1$&#44; 속해있지 않다면 $0$을 출력한다.
+	</li>
+	<li>
+		$size$ : 집합 $U$에 속해 있는 정수의 개수를 출력한다.
+	</li>
+</ul>
+<p>
+	모든 쿼리에서 $k$는 정수이며&#44; $(1 ≤ k ≤ 10^9)$를 만족한다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 쿼리의 개수 $Q$가 주어진다. $(1 ≤ Q ≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $Q$개의 줄에 걸쳐 임의의 쿼리가 주어진다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">출력을 요구하는 쿼리가 주어질 때마다 그에 맞는 정답을 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">9
+insert 1
+insert 2
+find 1
+insert 1
+size
+find 3
+delete 1
+insert 3
+size
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">1
+2
+0
+2</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	<a class="ke-insertfile" href="https://algowiki.co.kr/problem.php?id=1030" target="_blank">이전</a>&nbsp;문제와 달리&#44; 집합 내 요소의 업데이트가 빈번하게 일어날 수 있으며 쿼리의 개수가 최대 $200&#44;000$개까지 될 수 있다.
+</p>
+<p>
+	따라서 삽입&#44; 탐색&#44; 삭제 작업을 효율적으로 처리할 수 있어야 한다. tree / hash 기반 자료구조를 이용하자.
+</p>
+<p>
+	<ul>
+		<li>
+			tree
+		</li>
+		<ul>
+			<li>
+				균형 있는 트리 기반의 자료구조를 사용하면&nbsp;쿼리 당 $O(logQ)$으로 $O(QlogQ)$에 문제를 해결할 수 있다.
+			</li>
+		</ul>
+		<li>
+			hash
+		</li>
+		<ul>
+			<li>
+				이론 상 쿼리 당 $O(1)$로 $O(Q)$에 문제를 해결할 수 있다.
+			</li>
+			<li>
+				해시 충돌을 생각하지 않았을 때 기준이며&#44; 만약 해시 충돌을 고려한다면 $O(Q^2)$의 시간 복잡도를 갖게 된다.<br />
+			</li>
+		</ul>
+	</ul>
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

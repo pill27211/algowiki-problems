@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1057. 소개팅 매칭하기 (Large) · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1057</div>
+  <h1>소개팅 매칭하기 (Large)</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 4</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=정렬">정렬</a> <a class="chip" href="../index.html?cat=이분_탐색">이분 탐색</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$명의 남자와 $m$명의 여자가 있을 때&#44; 우리는 이들 사이에 얼마나 많은 소개팅이 매칭될 수 있는지를 구해보려고 한다.
+</p>
+<p>
+	이번 소개팅에서 중요한 것은 '키 차이'이다. 구체적인 조건은 다음과 같다.
+</p>
+<ul>
+	<li>
+		남자 $i$의 키를 $a_i$&#44; 여자 $j$의 키를 $b_j$라 할 때&#44; $|a_i - b_j|&nbsp;≤ k$ 를 만족한다.
+	</li>
+</ul>
+<p>
+	남자들의 키 $a_1&#44; a_2&#44; ... &#44; a_n$과 여자들의 키 $b_1&#44; b_2&#44; ... &#44; b_m$이 주어진다. 이들 간에 매칭되는 소개팅의 경우의 수를 구해보자.
+</p>
+<p>
+	단&#44; 소개팅은 반드시 남자-여자 간에만 이뤄질 수 있다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 남자의 수와 여자의 수를 의미하는 $n&#44; m$과&#44; 기준 $k$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ n&#44; m&nbsp;≤ 200&#44;000; 1 ≤ k ≤ 10^9)$
+</p>
+<p>
+	둘째 줄에 $a_1&#44; a_2&#44; ... &#44; a_n$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ a_i&nbsp;≤ 10^9)$
+</p>
+<p>
+	셋째 줄에 $b_1&#44; b_2&#44; ... &#44; b_m$이 공백으로 구분되어 주어진다. $(1&nbsp;≤ b_i&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">매칭되는 소개팅의 경우의 수를 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4 4 2
+5 6 7 8
+3 4 5 6
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">10</pre></div></div></div></section>
+<section class="sec hintsec"><h2>힌트</h2><div class="body">매칭되는 소개팅 $(a_i&#44; b_j)$은 $(5&#44; 3)&#44; (5&#44; 4)&#44; (5&#44; 5)&#44; (5&#44; 6)&#44; (6&#44; 4)&#44; (6&#44; 5)&#44; (6&#44; 6)&#44; (7&#44; 5)&#44; (7&#44; 6)&#44; (8&#44; 6)$로 총 $10$가지이다.</div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	$Small$에서는 제한이 충분히 작아 나이브하게 답을 계산해도 됐지만&#44; $n&#44; m ≤ 200&#44;000$ 이므로 최적화가 필요하다.
+</p>
+<p>
+	절댓값을 풀면 $a_i-k ≤ b_j ≤ a_i+k$가 되므로&#44; 모든 $a_i$에 대해 이를 만족하는 $b_j$의 개수를 답에 누적 해주면 된다.
+</p>
+<p>
+	이때 $b_1&#44; b_2&#44; ... &#44; b_m$을 정렬해두면 $a_i-k ≤ b_j$인 첫 인덱스와 $b_j ≤ a_i+k$인 끝 인덱스를 이분 탐색으로 찾아줄 수 있으니&#44; 문제를 $O((n + m)logm)$에 해결할 수 있게 된다.
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

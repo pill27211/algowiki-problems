@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1216. $min, mid, max$ · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1216</div>
+  <h1>$min, mid, max$</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 8</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=트리를_사용한_집합과_맵">트리를 사용한 집합과 맵</a> <a class="chip" href="../index.html?cat=우선순위_큐">우선순위 큐</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	$n$개의 정수가 차례대로 주어진다. 각 수가 주어질 때마다 다음을 따르는 프로그램을 작성하자.
+</p>
+<ul>
+	<li>
+		지금 주어진 수가 홀수라면 지금까지 주어진 홀수 중 최솟값&#44; 중앙값&#44; 최댓값을 출력한다.
+	</li>
+	<li>
+		지금 주어진 수가 짝수라면 지금까지 주어진 짝수 중 최솟값&#44; 중앙값&#44; 최댓값을 출력한다.
+	</li>
+</ul>
+<p>
+	$k$개의 수에서 중앙값이란 다음으로 정의된다.
+</p>
+<ul>
+	<li>
+		$k$개의 수를 비내림차순으로 정렬한다.
+	</li>
+	<li>
+		앞에서 $⌈\frac{k}{2}⌉$<span style="color:#4D5156;font-family:&quot;font-size:14px;text-wrap:wrap;background-color:#FFFFFF;">번째로 오는 수가 중앙값이다.</span>
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 주어지게 될 정수의 개수 $n$이 주어진다. $(1&nbsp;≤ n&nbsp;≤ 200&#44;000)$
+</p>
+<p>
+	둘째 줄에 $n$개의 정수가 공백으로 구분되어 차례대로 주어진다. 이 수는 $10^6$을 넘지 않는 양의 정수이다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">출력은 $n$개의 줄에 걸쳐 이뤄진다. $i$번째 줄에는 $i$번째 수가 주어졌을 때의 출력 결과를 공백으로 구분하여 차례대로 출력해야 한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">8
+8 7 6 5 4 3 2 1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">8 8 8
+7 7 7
+6 6 8
+5 5 7
+4 6 8
+3 5 7
+2 4 8
+1 3 7</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

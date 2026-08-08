@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1158. 전자레인지는 하나야 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1158</div>
+  <h1>전자레인지는 하나야</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a> <a class="chip" href="../index.html?cat=정렬">정렬</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	오늘은 TV 연등이 가능한 금요일이다. 당직 사령의 배려로&#44; 특별히 연등 시간 내 냉동 음식 취식이 가능하다고 한다!
+</p>
+<p>
+	&nbsp;이에 우리는 $N$개의 냉동 음식을 준비 했다. 각 냉동 음식은 조리 시간 $t_i$와 먹는 시간 $e_i$가 존재하며&#44; 반드시 모든 냉동 음식을 데워 먹어야 한다.
+</p>
+<p>
+	무려 TV 연등이기 때문에&#44; $1$분 $1$초가 소중하다. 모든 냉동 음식을 조리 및 먹는 데에 걸리는 총 시간을 최소화 해보자.
+</p>
+<p>
+	전자레인지에서 두 개 이상의 음식을 동시에 조리할 수는 없으며&#44; 한 음식의 조리가 끝나면 곧바로 다음 조리를 시작할 수 있다. 총 시간을 계산함에 있어서 조리 시간과 먹는 시간을 제외한 다른 요인은 고려하지 않는다.
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 냉동 음식의 수를 의미하는 정수 $n$이 주어진다.&nbsp;$(1 ≤ n ≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $n$개의 줄에 걸쳐 각 냉동 음식에 대한 정보 $t_i$&#44; $e_i$가 공백으로 구분되어 주어진다.&nbsp;$(1 ≤ t_i&#44; e_i ≤ 1&#44;000)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">모든 냉동 음식을 조리 및 먹는 데에 걸리는 총 시간의 최솟값을 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4
+1 3
+2 2
+2 3
+4 1
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">10</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">그리디 전략의 대표 예제인 전자레인지 문제이다. 전자레인지를 쉬지않고 가동할 때&#44; $t_i$와 $e_i$의 특성을 생각해보자.<br />
+<ul>
+	<li>
+		$t_i$는 조리 순서를 어떻게 하던 $\sum\limits_{i=1}^n t_i$의 값이 동일하다.
+	</li>
+	<li>
+		$e_i$는 조리 순서의 영향을 받으며&#44; $\sum\limits_{i=1}^n t_i$ 동안 먹는 시간이 오래 걸리는 녀석들을 우선적으로 먹어치우는 것이 최선이다.
+	</li>
+</ul>
+따라서&#44; $e_i$를 기준으로 내림차순으로 정렬하여 답을 계산해주면 된다.<br /></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

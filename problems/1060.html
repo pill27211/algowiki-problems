@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1060. 올바른 괄호 문자열 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1060</div>
+  <h1>올바른 괄호 문자열</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=자료_구조">자료 구조</a> <a class="chip" href="../index.html?cat=스택">스택</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	'['&#44; ']'&#44; '('&#44; ')'로만 이루어진 괄호 문자열이 주어진다. 이 문자열이 <strong>올바른 괄호 문자열</strong>인지 검사하는 프로그램을 작성해보자.
+</p>
+<p>
+	괄호 문자열이 다음을 만족하면 <strong>올바른 괄호 문자열</strong>이라고 할 수 있다.
+</p>
+<ul>
+	<li>
+		()&#44; []는 올바른 괄호 문자열이다.
+	</li>
+	<li>
+		A가 올바른 괄호 문자열이면&#44; (A)&#44; [A] 도 올바른 괄호 문자열이다.
+	</li>
+	<li>
+		A와 B가 올바른 괄호 문자열이면&#44; AB도 올바른 괄호 문자열이다.
+	</li>
+	<li>
+		모든 여는 괄호들은 자신에게 대응되는 유일한 닫는 괄호가 있어야 한다.
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 테스트 케이스의 개수 $T$가 주어진다. $(1&nbsp;≤ T&nbsp;≤ 1&#44;000)$
+</p>
+<p>
+	둘째 줄부터 $T$개의 줄에 걸쳐 괄호 문자열이 주어진다. 괄호 문자열의 길이는 $100$을 넘지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">테스트 케이스마다 괄호 문자열이 올바른 괄호 문자열이라면 YES&#44; 올바른 괄호 문자열이 아니라면 NO를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">4
+()()
+[()[()])
+[([])]
+(((]]]</pre></div><div><div class="io-h">예제 출력</div><pre class="io">YES
+NO
+YES
+NO</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body"><p>
+	대표적인 스택 응용 문제 중 하나로&#44; 올바르지 않은 괄호 문자열의 조건을 검사해주면 된다.
+</p>
+<p>
+	<ol>
+		<li>
+			기본적으로 여는 괄호는 스택에 넣는다.
+		</li>
+		<li>
+			닫는 괄호일 경우&#44; 같은 타입의 여는 괄호가 스택의 맨 위에 있는지 검사한다.
+		</li>
+		<ol>
+			<li>
+				같은 타입의 여는 괄호가 있다면 스택에서 뺀다.
+			</li>
+			<li>
+				같은 타입의 여는 괄호가 없다면 올바르지 않은 괄호 문자열이다.
+			</li>
+		</ol>
+		<li>
+			문자열 순회가 끝나고&#44; 최종적으로 스택이 비어 있는지 확인한다.
+		</li>
+		<ol>
+			<li>
+				스택이 비어 있다면 올바른 괄호 문자열이다.
+			</li>
+			<li>
+				스택이 비어 있지 않다면 닫힌 괄호와 만나지 못한 여는 괄호가 존재한다는 뜻이므로 올바르지 않은 괄호 문자열이다.
+			</li>
+		</ol>
+	</ol>
+</p></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

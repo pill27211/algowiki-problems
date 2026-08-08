@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AlgoWiki · 알고리즘 문제 아카이브</title>
+<link rel="stylesheet" href="assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="index">
+<header class="hero">
+  <h1>AlgoWiki <span>Problem Archive</span></h1>
+  <p class="lead">제가 운영했었던 온라인 저지 <b>AlgoWiki</b> 당시에 만들어 넣은 문제 모음입니다.</p>
+  <div class="stats">
+    <div class="stat"><b>217</b><span>수록 문제</span></div>
+    <div class="stat"><b>67</b><span>알고리즘 분류</span></div>
+  </div>
+</header>
+<main class="wrap">
+  <div class="controls">
+    <input id="q" type="search" placeholder="🔍 제목 또는 번호 검색">
+    <select id="cat"><option value="">전체 분류</option></select>
+    <select id="diff"><option value="">전체 난이도</option></select>
+    <button id="metaToggle" class="toggle-btn" type="button">난이도 · 유형 표시</button>
+    <span id="count" class="count"></span>
+  </div>
+  <div id="list" class="plist"></div>
+</main>
+<footer class="foot">AlgoWiki Problem Archive · 직접 출제한 문제 모음</footer>
+<script src="assets/data.js"></script>
+<script src="assets/app.js"></script>
+</body></html>

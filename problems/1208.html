@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1208. 숫자 대응 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1208</div>
+  <h1>숫자 대응</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 3</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그리디_알고리즘">그리디 알고리즘</a> <a class="chip" href="../index.html?cat=문자열">문자열</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body">알파벳 소문자(a&#44; b&#44; c&#44; d&#44; e&#44; f&#44; g&#44; h&#44; i) 로만 이루어진 문자열 $S$가 주어진다. $S$를 구성하는 서로 다른 종류의 문자들을 숫자 집합(1&#44; 2&#44; 3&#44; 4&#44; 5&#44; 6&#44; 7&#44; 8&#44; 9)에 중복되지 않게 대응 시켜 $S$를 정수로 만들 때&#44; 만들 수 있는 가장 큰 정수를 구해보자.</div></section>
+<section class="sec"><h2>입력</h2><div class="body">첫째 줄에 문자열 $S$가 주어진다. $(1&nbsp;≤ |S|&nbsp;≤ 200&#44;000)$</div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 만들 수 있는 가장 큰 정수를 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">abcda
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">98769</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">어떤 알파벳에 어떤 숫자를 대응 시켜야 주어진 문자열을 최대한 큰 정수로 만들 수 있을까? 이는 당연하게도, 큰 자릿수에 있는 알파벳일수록 큰 숫자를 부여하는 것이다. 다음의 시행을 거치자.<br>
+<pre>
+1. 숫자 d에 대응 시킬 문자를 찾을 것이다. d는 9, 8, ... , 1 순으로 감소한다.
+2. S의 큰 자릿수(문자열의 맨 왼쪽)부터 하나씩 내려올 때, 아직 숫자로 대응되지 않은 첫 알파벳을 cur이라고 하자.
+3. cur이 특정되지 않았다면 모든 알파벳의 대응이 끝났다는 뜻이므로 S를 출력한 뒤 프로그램을 종료한다.
+4. cur이 특정 됐다면 다시 S를 순회하며 S[i] = cur인 모든 S[i]들을 S[i] = d로 만들고, 1로 돌아간다.
+</pre>
+위 과정대로 문제를 해결하면, 아무리 최악의 경우라도 전체 시행은 $9$번밖에 반복되지 않으므로 $O(|S|)$의 시간 복잡도로 문제를 해결할 수 있다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

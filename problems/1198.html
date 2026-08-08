@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1198. 저격의 신 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1198</div>
+  <h1>저격의 신</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 9</span>
+    <span class="badge">⏱ 2.000s</span>
+    <span class="badge">🧠 512 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=그래프_이론">그래프 이론</a> <a class="chip" href="../index.html?cat=그래프_탐색">그래프 탐색</a> <a class="chip" href="../index.html?cat=너비_우선_탐색">너비 우선 탐색</a> <a class="chip" href="../index.html?cat=다이나믹_프로그래밍">다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=비트마스킹">비트마스킹</a> <a class="chip" href="../index.html?cat=비트필드를_이용한_다이나믹_프로그래밍">비트필드를 이용한 다이나믹 프로그래밍</a> <a class="chip" href="../index.html?cat=외판원_순회_문제">외판원 순회 문제</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	저격의 신이 되기 위해선 표적을 정확하게&#44; 그리고 신속하게 제압하는 것이 중요하다. 다음 임무를 성공적으로 완료해 진정한 '저격의 신'이 되어보자.
+</p>
+<p>
+	$N \times M$ 크기의 목표 범위에 대해 $K$개의 표적이 있고&#44; 당신은 이 $K$개의 표적을 모두 제압해야 한다. 지금 제압하고자 하는 표적의 좌표를 $(y_1&#44; x_1)$&#44; 다음으로 제압하고자 하는 표적의 좌표를 $(y_2&#44; x_2)$라고 하자. 현재 표적을 제압한 후 다음 표적을 겨냥하기 위해서는 $(y_1&#44; x_1)$에서 $(y_2&#44; x_2)$에 도달하기 위해 발생하는 최소한의 좌표 변화 횟수만큼 시간이 걸린다. 좌표는 상&#44; 하&#44; 좌&#44; 우로 $1$만큼 변화할 수 있다. 마지막 표적을 제압하고 나면 그 즉시 저격을 종료한다. 첫 표적에 있어선 좌표 변화 횟수를 $0$으로 한다.
+</p>
+<p>
+	$K$개의 표적을 제압하는 순서는 당신의 자유지만&#44; 이 과정에서 발생한 <span style="text-wrap:wrap;">좌표 변화 횟수</span>의 총 합은 반드시 최소가 되어야 한다. 당신은 유능한 저격수이므로 표적을 제압하는 데에 걸리는 시간은 무시할 수 있으며&#44; 본 문제에서는 오로지 <span style="text-wrap:wrap;">좌표 변화 횟수</span>만을 고려한다.
+</p>
+<p>
+	$N \times M$ 크기의 목표 범위 및 표적의 정보가 주어졌을 때&#44; 모든 표적을 제압하기 위해 발생하는&nbsp;<span style="text-wrap:wrap;">좌표 변화 횟수의 최솟값을 구해보자.</span> 
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 목표 범위의 세로 길이 $N$과 가로 길이 $M$&#44; 표적의 수 $K$가 공백으로 구분되어 주어진다. $(1&nbsp;≤ N&#44; M&nbsp;≤ 500; 1&nbsp;≤ K&nbsp;≤ min(N \times M&#44; 17))$
+</p>
+<p>
+	둘째 줄부터 $N$개의 줄에 걸쳐 목표 범위의 정보가 주어진다. '.'은 좌표 변화할 수 있는 빈 공간&#44; '#'은 좌표 변화할 수 없는 벽&#44; 'X'는 표적을 의미한다.
+</p>
+<p>
+	표적들이 벽에 의해 분리되는 경우는 입력으로 주어지지 않는다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에&nbsp;<span style="text-wrap:wrap;">모든 표적을 제압하기 위해 발생하는&nbsp;</span><span style="text-wrap:wrap;">좌표 변화 횟수의 최솟값을 출력한다.</span></div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">5 5 4
+##..X
+#X#.#
+#...X
+#..#.
+#.X..
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">12</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">우리가 구해야 하는 것은 $K$개의 표적을 순회하는 최소 비용을 찾는 것이다. $np$ 문제인 외판원 순회 문제$(TSP)$의 명세가 되겠다.<br>
+나아가 $1 ≤ K ≤ min(N \times M, 17)$ 임에 따라, $Bit$ $DP$를 이용해 제한 시간 내에 풀 수 있다.
+<div style="width:100%;height:10px;">
+</div>
+우선 모든 표적의 위치로부터 $BFS$를 진행해 아래의 배열을 채워넣자.
+<div style="width:100%;height:10px;">
+</div>
+<pre>dist[i][j] : i번째 표적에서 j번째 표적으로 가는 최단 거리
+</pre>
+<div style="width:100%;height:10px;">
+</div>
+이제 위 배열을 바탕으로 아래 배열의 각 상태를 채워주면 되겠다.
+<div style="width:100%;height:10px;">
+</div>
+<pre>dp[i][j] : 지금까지 제압한 표적의 상태가 j이고, i번 표적의 위치에 있을 때의 답
+</pre>
+<div style="width:100%;height:10px;">
+</div>
+시간 복잡도를 계산해보자. <div style="width:100%;height:10px;"></div>
+<ul>
+	<li>
+		$dist$ 배열을 채우기 위해 $K$번의 $BFS$를 진행함에 따라 $O(NMK)$번의 연산을 진행한다.
+	</li>
+	<li>
+		$Bit$ $DP$에서 상태의 개수가 $K \times 2^K$개, 각 상태의 답을 계산하는 데에 $O(K)$ 즉, $O(K^22^K)$번의 연산을 진행한다.
+	</li>
+</ul>
+따라서 총 $O(NMK + K^22^K)$의 시간 복잡도로 문제를 해결할 수 있다.</div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

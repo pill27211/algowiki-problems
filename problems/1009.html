@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1009. 빠른 입출력 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1009</div>
+  <h1>빠른 입출력</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 1</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=수학">수학</a> <a class="chip" href="../index.html?cat=구현">구현</a> <a class="chip" href="../index.html?cat=사칙연산">사칙연산</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	같은 입출력이라도&#44; 어떤 방식을 사용하냐에 따라 그 속도는 천차만별일 수 있다.
+</p>
+<p>
+	대표적으로 C&#44; C++&#44; JAVA&#44; Python에서의 빠른 입출력 방식을 요약해보자면 아래와 같다.
+</p>
+<ul>
+	<li>
+		C : scanf()&#44; printf()는 이미 그 자체로 충분히 빠른 입출력 함수에 속한다.
+	</li>
+	<li>
+		C++ : C의 입출력 방식을 써도 되지만&#44; cin&#44; cout을 사용할 경우 ios_base::sync_with_stdio(false)와 cin.tie(nullptr) 라는 문장을 추가해 주어야 한다. 이 문장을 쓰면 C 스트림과 동기화가 끊기기 때문에&nbsp;C 스타일의 입출력 함수를 혼용하면 안 된다.
+	</li>
+	<li>
+		Java : Scanner<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">와&nbsp;<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">System.out.print 대신에&nbsp;<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">BufferedReader와&nbsp;<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">BufferedWriter를 사용하면 된다.</span></span></span></span> 
+	</li>
+	<li>
+		<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;"><span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">Python : <span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">input 대신에&nbsp;<span style="color:#555555;font-family:Menlo&#44;font-size:14.4px;text-wrap:wrap;background-color:#FFFFFF;">sys.stdin.readline을 사용해 보자. 행 단위로 읽어들이기 때문에&#44;&nbsp;<span style="color:#555555;font-family:&quot;font-size:medium;text-wrap:wrap;background-color:#FFFFFF;">맨 끝에 개행문자가 같이 읽어짐을 유의해야 한다.</span></span></span></span></span></span> 
+	</li>
+</ul></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 테스트 케이스의 개수 $T$가 주어진다. $(1 ≤ T ≤ 10^6)$
+</p>
+<p>
+	둘째 줄부터 $T$개의 줄에 걸쳐 두 정수 $A&#44; B$가 공백으로 구분되어 주어진다. $(-10^9&nbsp;≤ A&#44; B&nbsp;≤ 10^9)$
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">각 테스트 케이스마다 $A+B$의 결과를 한 줄에 하나씩 차례대로 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">3
+1 3
+-5 5
+5 10
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">4
+0
+15
+</pre></div></div></div></section>
+<section class="sec itemhint"><h2>💎 힌트 아이템</h2><div class="note">AlgoWiki의 인벤토리·아이템 시스템으로 잠금 해제되던 프리미엄 힌트입니다.</div><div class="body">C
+<pre>
+본문에서 언급하였듯, scanf()와 printf()는 충분히 빠른 입출력 함수이다.
+</pre>
+C++
+<pre>
+본문에 언급된 두 문장을 추가하자. 그럼 다음의 변화가 일어난다.
+1. C와 스트림 동기화를 끊는다. 따라서, C 스타일의 입출력 함수를 혼용하면 안된다.
+2. 기본적으로 cout에 종속되어 있는 cin을 untie(독립) 시켜준다.
+
+또한, cout에서 endl을 개행으로 쓸 수 있는데 이는 단순 개행뿐 아니라 매번 버퍼 flush 연산을 추가로 수행한다.
+가벼운 연산도 아닐 뿐더러 불필요한 연산을 굳이 수행할 필요는 없으므로 개행 문자('\n')를 출력하자.
+</pre>
+Java
+<pre>
+BufferedReader와 BufferedWriter를 사용해보자.
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+//a와 b가 공백으로 구분됨을 유의하자.
+String[] input = br.readLine().split(" ");
+int a = Integer.parseInt(input[0]);
+int b = Integer.parseInt(input[1]);
+...
+
+출력에 있어선 그때그때 출력하기보다 정답을 모아둔 후 한 번에 출력하는 것이 좋다.
+</pre>
+Python
+<pre>
+ sys.stdin.readline을 사용해 보자.
+
+// a와 b가 공백으로 구분됨을 유의하자.
+a, b = map(int, sys.stdin.readline().split())
+...
+
+출력에 있어선 print()만 사용해도 된다.
+</pre></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>

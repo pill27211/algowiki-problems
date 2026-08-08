@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>1038. 카드 정리하기 · AlgoWiki 문제</title>
+<link rel="stylesheet" href="../assets/style.css">
+<script>window.MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']]},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']}};</script><script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head><body class="problem">
+<header class="topbar"><a class="back" href="../index.html">&larr; 문제 목록</a><span class="brand">AlgoWiki</span></header>
+<main class="wrap">
+<div class="phead">
+  <div class="pid">#1038</div>
+  <h1>카드 정리하기</h1>
+  <div class="meta">
+    <span class="badge diff">난이도 6</span>
+    <span class="badge">⏱ 1.000s</span>
+    <span class="badge">🧠 128 MB</span>
+  </div>
+  <div class="tags"><a class="chip" href="../index.html?cat=애드_혹">애드 혹</a></div>
+  <button class="spoiler-btn" onclick="var s=document.body.classList.toggle('spoiled');this.textContent=s?'🔓 스포일러 숨기기':'🔒 스포일러 보기 · 난이도 / 유형 / 힌트';">🔒 스포일러 보기 · 난이도 / 유형 / 힌트</button>
+</div>
+<section class="sec"><h2>문제</h2><div class="body"><p>
+	당신은 $N$장의 카드를 정리하라는 임무를 받았다. 각 카드에는 $1&#44; 2&#44; ... &#44; N$ 중 임의의 번호가 쓰여 있으며&#44; 번호가 중복되는 카드는 없다.
+</p>
+<p>
+	카드가 왼쪽에서 오른쪽으로 $1$번 카드&#44; $2$번 카드&#44; ... &#44; $N$번 카드 순으로 배치되어 있다면 카드 정리가 끝난 것이다.
+</p>
+<p>
+	카드를 정리하기 위해 '스왑'이라는 것을 할 수 있는데&#44; 이것의 정의는 아래와 같다.
+</p>
+<ul>
+	<li>
+		$i&nbsp;≠ j$인 $i$번째 카드와 $j$번째 카드를 골라&#44; 서로 위치를 바꾼다.
+	</li>
+</ul>
+<p>
+	현재 시간이 부족한 관계로&#44; 최대 $K$번 스왑 이내에 모든 카드를 정리해야 한다. 당신은 이 임무를 성공시킬 수 있을까?
+</p></div></section>
+<section class="sec"><h2>입력</h2><div class="body"><p>
+	첫째 줄에 카드의 개수 $N$과 최대 스왑 가능 횟수 $K$가 공백으로 구분되어 주어진다. <span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;"><span style="text-wrap:wrap;">$(1 ≤ N ≤ 200&#44;000;$ $0 ≤ K &lt; N)$</span></span></span></span><span style="text-wrap:wrap;"></span> 
+</p>
+<p>
+	둘째 줄에 현재 카드의 배치 상태가 공백으로 구분되어 주어진다.
+</p></div></section>
+<section class="sec"><h2>출력</h2><div class="body">첫째 줄에 최대 $K$번 이내로 스왑하여 모든 카드를 정리할 수 있다면 'possible'&#44; 정리할 수 없다면 'impossible'을 출력한다.</div></section>
+<section class="sec"><h2>예제</h2><div class="body"><div class="io-grid"><div><div class="io-h">예제 입력</div><pre class="io">7 4
+1 5 4 6 2 3 7
+</pre></div><div><div class="io-h">예제 출력</div><pre class="io">possible</pre></div></div></div></section>
+</main>
+<footer class="foot">AlgoWiki Problem Archive</footer>
+</body></html>
